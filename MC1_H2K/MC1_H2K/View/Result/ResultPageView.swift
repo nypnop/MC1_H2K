@@ -9,6 +9,13 @@ import SwiftUI
 
 struct ResultPageView: View {
     @State private var index = 0
+    init() {
+        UISegmentedControl.appearance().selectedSegmentTintColor = UIColor.white
+        let attributes: [NSAttributedString.Key:Any] = [
+            .foregroundColor: UIColor(named: "teal600")!
+        ]
+        UISegmentedControl.appearance().setTitleTextAttributes(attributes, for: .normal)
+    }
     var body: some View {
         VStack{
             VStack{
@@ -20,7 +27,7 @@ struct ResultPageView: View {
                         Button(action: {
                             
                         }){
-                        Label("Expore To PDF", systemImage: "square.and.arrow.up.fill")
+                            Label("Expore To PDF", systemImage: "square.and.arrow.up.fill")
                         }
                         .buttonStyle( PdfButtonTemplate(width: 111, height:24) )
                         .padding(.bottom,15)
@@ -34,13 +41,18 @@ struct ResultPageView: View {
                     .font(.caption)
                     .foregroundColor(Color("GrayLight"))
                 //PICKER TAB SEGMENT
-                Picker("text", selection: $index){
-                    Text("Description").tag(0)
-                    Text("Graph").tag(1)
-                    Text("History").tag(2)
-                }
+                Picker(
+                    selection:$index,
+                    label: Text("Picker"),
+                    content: {
+                        Text("Description").tag(0)
+                        Text("Graph").tag(1)
+                        Text("History").tag(2)
+                    })
+                .background(Color("teal25"))
                 .pickerStyle(.segmented)
-                .padding()
+                .padding(.horizontal)
+                .padding(.top)
             }
             ScrollView{
                 if index == 0{
@@ -52,8 +64,9 @@ struct ResultPageView: View {
                     ResultHistory()
                 }
             }
-        }.padding(.top,32)
-        
+        }
+        .padding(.top,32)
+        .padding(.horizontal,8)
         .navigationTitle("Attachment Style Result")
         .edgesIgnoringSafeArea(.bottom)
     }
