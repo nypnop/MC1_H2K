@@ -23,11 +23,14 @@ var data: [styleType] = [
 
 
 struct ResultGraph: View {
+    
+    @State var isChartAnimate : Bool = false
+    
     var body: some View {
         Chart(data){
             item in
             BarMark(
-                x: .value("count", item.count),
+                x: .value("count", isChartAnimate ? item.count : 0),
                 y: .value("type", item.type)
             )
             .foregroundStyle(Color("teal500"))
@@ -59,6 +62,11 @@ struct ResultGraph: View {
         }
         .chartXScale(domain: 0...110)
         .frame(width: .infinity, height: 292)
+        .onAppear{
+            withAnimation(.easeIn(duration: 2)){
+                isChartAnimate = true
+            }
+        }
                 
     }
     
