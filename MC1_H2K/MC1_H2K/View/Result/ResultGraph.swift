@@ -15,13 +15,12 @@ struct styleType: Identifiable{
 }
 
 var data: [styleType] = [
-    styleType(type: "Secure", count: 25),
+    styleType(type: "Secure", count: 50),
     styleType(type: "Anxious", count: 50),
     styleType(type: "Dismissive-Avoidant", count: 55),
     styleType(type: "Fearful-Avoidant", count: 100)
 ]
 
-let barcolor = Color(UIColor(named: "teal500")!)
 
 struct ResultGraph: View {
     var body: some View {
@@ -31,11 +30,11 @@ struct ResultGraph: View {
                 x: .value("count", item.count),
                 y: .value("type", item.type)
             )
-            .foregroundStyle(barcolor)
+            .foregroundStyle(Color("teal500"))
             .annotation(position: .trailing) {
                                 Text(String(format: "%.0f%%", item.count))
                                     .foregroundColor(Color.primary)
-                                    .font(.system(size: 9, weight: .regular))
+                                    .font(.caption2)
                                     .padding(.leading, 2)
                             }
         
@@ -50,7 +49,7 @@ struct ResultGraph: View {
         .chartYAxis {
             AxisMarks(position: .leading) { _ in
                 AxisValueLabel()
-                    .font(.system(size: 12))
+                    .font(.caption2)
                     .offset(x:-4)
             }
         }
