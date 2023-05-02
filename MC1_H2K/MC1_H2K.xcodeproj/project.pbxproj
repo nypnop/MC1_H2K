@@ -12,6 +12,10 @@
 		1100897029FD492F00E1ADFE /* ResultDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100896F29FD492F00E1ADFE /* ResultDescription.swift */; };
 		1100897229FD495D00E1ADFE /* ResultPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100897129FD495D00E1ADFE /* ResultPageView.swift */; };
 		1100897629FD4CCF00E1ADFE /* PdfButtonTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100897529FD4CCF00E1ADFE /* PdfButtonTemplate.swift */; };
+		11C3F9F52A0081130024C8AB /* CompatibilityPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C3F9F42A0081130024C8AB /* CompatibilityPageView.swift */; };
+		11C3F9F72A0081250024C8AB /* CompatibilityResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C3F9F62A0081250024C8AB /* CompatibilityResult.swift */; };
+		11C3F9F92A0081370024C8AB /* CompatibilityHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C3F9F82A0081370024C8AB /* CompatibilityHistory.swift */; };
+		11C3F9FB2A0081550024C8AB /* CompatibilityInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C3F9FA2A0081550024C8AB /* CompatibilityInput.swift */; };
 		4ADD3B8E29FD2B0A003C3BCF /* QuestionTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADD3B8D29FD2B0A003C3BCF /* QuestionTemplate.swift */; };
 		4ADD3B9029FD2B15003C3BCF /* BigButtonTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADD3B8F29FD2B15003C3BCF /* BigButtonTemplate.swift */; };
 		4ADD3B9229FD2B21003C3BCF /* TestPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADD3B9129FD2B21003C3BCF /* TestPageView.swift */; };
@@ -29,6 +33,10 @@
 		1100896F29FD492F00E1ADFE /* ResultDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultDescription.swift; sourceTree = "<group>"; };
 		1100897129FD495D00E1ADFE /* ResultPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultPageView.swift; sourceTree = "<group>"; };
 		1100897529FD4CCF00E1ADFE /* PdfButtonTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfButtonTemplate.swift; sourceTree = "<group>"; };
+		11C3F9F42A0081130024C8AB /* CompatibilityPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityPageView.swift; sourceTree = "<group>"; };
+		11C3F9F62A0081250024C8AB /* CompatibilityResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityResult.swift; sourceTree = "<group>"; };
+		11C3F9F82A0081370024C8AB /* CompatibilityHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityHistory.swift; sourceTree = "<group>"; };
+		11C3F9FA2A0081550024C8AB /* CompatibilityInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityInput.swift; sourceTree = "<group>"; };
 		4ADD3B8D29FD2B0A003C3BCF /* QuestionTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTemplate.swift; sourceTree = "<group>"; };
 		4ADD3B8F29FD2B15003C3BCF /* BigButtonTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigButtonTemplate.swift; sourceTree = "<group>"; };
 		4ADD3B9129FD2B21003C3BCF /* TestPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPageView.swift; sourceTree = "<group>"; };
@@ -61,6 +69,17 @@
 				1100897129FD495D00E1ADFE /* ResultPageView.swift */,
 			);
 			path = Result;
+			sourceTree = "<group>";
+		};
+		11C3F9F32A0081070024C8AB /* Compatibility */ = {
+			isa = PBXGroup;
+			children = (
+				11C3F9F42A0081130024C8AB /* CompatibilityPageView.swift */,
+				11C3F9FA2A0081550024C8AB /* CompatibilityInput.swift */,
+				11C3F9F62A0081250024C8AB /* CompatibilityResult.swift */,
+				11C3F9F82A0081370024C8AB /* CompatibilityHistory.swift */,
+			);
+			path = Compatibility;
 			sourceTree = "<group>";
 		};
 		4AFF4CFA29FD1D8A00D05BD9 = {
@@ -111,6 +130,7 @@
 		4AFF4D1529FD1DA700D05BD9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				11C3F9F32A0081070024C8AB /* Compatibility */,
 				1100896629FD474F00E1ADFE /* Result */,
 				4ADD3B8D29FD2B0A003C3BCF /* QuestionTemplate.swift */,
 				4ADD3B8F29FD2B15003C3BCF /* BigButtonTemplate.swift */,
@@ -201,16 +221,20 @@
 			files = (
 				1100897629FD4CCF00E1ADFE /* PdfButtonTemplate.swift in Sources */,
 				1100897229FD495D00E1ADFE /* ResultPageView.swift in Sources */,
+				11C3F9F52A0081130024C8AB /* CompatibilityPageView.swift in Sources */,
 				4ADD3B9029FD2B15003C3BCF /* BigButtonTemplate.swift in Sources */,
 				4AFF4D0929FD1D8A00D05BD9 /* ContentView.swift in Sources */,
 				1100896E29FD48FB00E1ADFE /* ResultGraph.swift in Sources */,
 				4ADD3B9429FD2B2E003C3BCF /* HomeTestPageView.swift in Sources */,
 				4ADD3B9629FD2B3B003C3BCF /* ProgressBarTemplate.swift in Sources */,
 				1100897029FD492F00E1ADFE /* ResultDescription.swift in Sources */,
+				11C3F9F72A0081250024C8AB /* CompatibilityResult.swift in Sources */,
 				1100896C29FD48D600E1ADFE /* ResultHistory.swift in Sources */,
 				4ADD3B9229FD2B21003C3BCF /* TestPageView.swift in Sources */,
 				4ADD3B8E29FD2B0A003C3BCF /* QuestionTemplate.swift in Sources */,
+				11C3F9FB2A0081550024C8AB /* CompatibilityInput.swift in Sources */,
 				4AFF4D0729FD1D8A00D05BD9 /* MC1_H2KApp.swift in Sources */,
+				11C3F9F92A0081370024C8AB /* CompatibilityHistory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,7 +363,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MC1_H2K/Preview Content\"";
-				DEVELOPMENT_TEAM = X836989ZKB;
+				DEVELOPMENT_TEAM = 4UQ7P64XP8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -369,7 +393,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MC1_H2K/Preview Content\"";
-				DEVELOPMENT_TEAM = X836989ZKB;
+				DEVELOPMENT_TEAM = 4UQ7P64XP8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
