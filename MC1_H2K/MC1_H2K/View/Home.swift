@@ -38,109 +38,113 @@ struct SecondHomeView: View{
     
     var body: some View{
         NavigationView() {
-            VStack(alignment: .leading){
-                HStack{
-                    //Your Attachment Style
-                    Text("Your Attachment Style")
-                        .font(.title3)
-                        .bold()
-                    
-                    //See More Button
-                    Text("See More")
-                        .font(.caption)
-                        .foregroundColor(Color("teal600"))
-                    Spacer()
-                }
-                .padding(.horizontal, 24)
-                
-                //Child Attachment Style
-                HStack(){
-                    Image("Avatar-FA")
-                        .resizable()
-                        .frame(width: 32, height: 32)
-                    
-                    VStack(alignment: .leading){
-                        Text("Fearful Avoidant")
-                            .font(.body)
+            ScrollView {
+                VStack(alignment: .leading){
+                    HStack{
+                        //Your Attachment Style
+                        Text("Your Attachment Style")
+                            .font(.title3)
+                            .bold()
                         
-                        Text("Child Attachment Style")
+                        //See More Button
+                        Text("See More")
                             .font(.caption)
-                            .foregroundColor(Color("GrayLight"))
+                            .foregroundColor(Color("teal600"))
+                        Spacer()
                     }
-                    
-                }
-                .padding(.horizontal, 24)
-                
-                HStack{
-                    //Compatibility with Other
-                    Text("Compatibility with Other")
-                        .font(.title3)
-                        .bold()
-                    
-                    //See More Button
-                    Text("See More")
-                        .font(.caption)
-                        .foregroundColor(Color("teal600"))
-                    Spacer()
-                }
-                .padding(.horizontal, 24)
-                
-                
-                //Parent Attachment Style
-                HStack(){
-                    Image("Avatar-DA")
-                        .resizable()
-                        .frame(width: 32, height: 32)
-                    
-                    VStack(alignment: .leading){
-                        Text("Dismissive-Avoidant")
-                            .font(.body)
-                        
-                        Text("Parent Attachment Style")
-                            .font(.caption)
-                            .foregroundColor(Color("GrayLight"))
-                    }
-                    
-                }
-                .padding(.horizontal, 24)
-                
-                //Compatibility Rate Text
-                Text("Compatibility Rate")
-                    .font(.caption)
-                    .foregroundColor(Color("GrayLight"))
                     .padding(.horizontal, 24)
-                    .padding(.top)
-                
-                //Compatibility Rate Chart
-                CompatibilityRate()
-                
-                HStack(){
-                    //Suggestion Text
-                    Text("Suggestions")
-                        .font(.title3)
-                        .bold()
                     
-                    //See More Button
-                    Text("See More")
-                        .font(.caption)
-                        .foregroundColor(Color("teal600"))
-                    Spacer()
-                }
-                .padding(.horizontal, 24)
-                
-                //Suggestion Box
-                
-                ScrollView {
-                    VStack {
-                        ForEach(cards.indices, id: \.self) { index in
-                            SuggestionCard(actionTitle: $cards[index].0, action: $cards[index].1, actionDescription: $cards[index].2)
+                    //Child Attachment Style
+                    HStack(){
+                        Image("Avatar-FA")
+                            .resizable()
+                            .frame(width: 32, height: 32)
+                        
+                        VStack(alignment: .leading){
+                            Text("Fearful Avoidant")
+                                .font(.body)
+                            
+                            Text("Child Attachment Style")
+                                .font(.caption)
+                                .foregroundColor(Color("GrayLight"))
                         }
+                        
+                    }
+                    .padding(.horizontal, 24)
+                    
+                    HStack{
+                        //Compatibility with Other
+                        Text("Compatibility with Other")
+                            .font(.title3)
+                            .bold()
+                        
+                        //See More Button
+                        Text("See More")
+                            .font(.caption)
+                            .foregroundColor(Color("teal600"))
+                        Spacer()
+                    }
+                    .padding(.horizontal, 24)
+                    
+                    
+                    //Parent Attachment Style
+                    HStack(){
+                        Image("Avatar-DA")
+                            .resizable()
+                            .frame(width: 32, height: 32)
+                        
+                        VStack(alignment: .leading){
+                            Text("Dismissive-Avoidant")
+                                .font(.body)
+                            
+                            Text("Parent Attachment Style")
+                                .font(.caption)
+                                .foregroundColor(Color("GrayLight"))
+                        }
+                        
+                    }
+                    .padding(.horizontal, 24)
+                    
+                    //Compatibility Rate Text
+                    Text("Compatibility Rate")
+                        .font(.caption)
+                        .foregroundColor(Color("GrayLight"))
+                        .padding(.horizontal, 24)
+                        .padding(.top)
+                    
+                    //Compatibility Rate Chart
+                    CompatibilityRate()
+                    
+                    HStack(){
+                        //Suggestion Text
+                        Text("Suggestions")
+                            .font(.title3)
+                            .bold()
+                        
+                        //See More Button
+                        Text("See More")
+                            .font(.caption)
+                            .foregroundColor(Color("teal600"))
+                        Spacer()
+                    }
+                    .padding(.horizontal, 24)
+                    
+                    //Suggestion Box
+                    
+                    
+                    
+                        VStack {
+                            ForEach(cards.indices, id: \.self) { index in
+                                SuggestionCard(CardTitle: $cards[index].0, CardAction: $cards[index].1, CardDescription: $cards[index].2)
+                                
+                            }
+                        
                     }
                 }
-            }
-            
-            .navigationTitle("Summary")
+                .scrollIndicators(.hidden)
+                .navigationTitle("Summary")
             .edgesIgnoringSafeArea(.bottom)
+            }
         }
     }
     
