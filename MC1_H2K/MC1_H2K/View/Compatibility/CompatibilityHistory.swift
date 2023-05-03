@@ -24,8 +24,9 @@ struct CompatibilityHistory: View {
     }
 }
 struct CardHistoryCompatibility: View{
+    @State var styleName : String = "Fearful-Avoidant"
+    @State var imageName : String = "Avatar-FA"
     var body: some View{
-        
         HStack(alignment:.top){
             VStack(spacing:0){
                 Circle()
@@ -40,34 +41,7 @@ struct CardHistoryCompatibility: View{
                 Text("12:56 PM, 28 April 2023")
                     .foregroundColor(Color("GrayLight"))
                     .font(.caption2)
-                HStack{
-                    Image("Avatar-FA")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(maxWidth: 32)
-                    VStack(alignment: .leading){
-                        Text("Fearful-Avoidant")
-                            .font(.body)
-                            .bold()
-                        Text("Attachment Style")
-                            .foregroundColor(Color("GrayLight"))
-                            .font(.caption)
-                    }
-                }
-                HStack{
-                    Image("Avatar-FA")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(maxWidth: 32)
-                    VStack(alignment: .leading){
-                        Text("Dismissive-Avoidant")
-                            .font(.body)
-                            .bold()
-                        Text("Attachment Style")
-                            .foregroundColor(Color("GrayLight"))
-                            .font(.caption)
-                    }
-                }
+                ComparisonStyle(styleName: $styleName, imageName: $imageName)
             }
             Spacer()
         }

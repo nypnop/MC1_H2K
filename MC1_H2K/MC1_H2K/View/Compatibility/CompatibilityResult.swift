@@ -17,6 +17,8 @@ var resultRate: [resultCompatibilityRate] = [
 ]
 
 struct CompatibilityResult: View {
+    @State var styleName : String = "Fearful-Avoidant"
+    @State var imageName : String = "Avatar-FA"
     var body: some View {
         VStack(alignment:.leading){
             HStack{
@@ -28,34 +30,7 @@ struct CompatibilityResult: View {
                 Spacer()
             }
             VStack(alignment:.leading){
-                HStack{
-                    Image("Avatar-FA")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(maxWidth: 32)
-                    VStack(alignment: .leading){
-                        Text("Fearful-Avoidant")
-                            .font(.body)
-                            .bold()
-                        Text("Attachment Style")
-                            .foregroundColor(Color("GrayLight"))
-                            .font(.caption)
-                    }
-                }
-                HStack{
-                    Image("Avatar-FA")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(maxWidth: 32)
-                    VStack(alignment: .leading){
-                        Text("Secure")
-                            .font(.body)
-                            .bold()
-                        Text("Attachment Style")
-                            .foregroundColor(Color("GrayLight"))
-                            .font(.caption)
-                    }
-                }
+                ComparisonStyle(styleName: $styleName, imageName: $imageName)
             }
             VStack(alignment: .leading){
                 Text("Compatibility Rate")
