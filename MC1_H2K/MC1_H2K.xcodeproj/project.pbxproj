@@ -18,6 +18,8 @@
 		4AFF4D0929FD1D8A00D05BD9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFF4D0829FD1D8A00D05BD9 /* ContentView.swift */; };
 		4AFF4D0B29FD1D8B00D05BD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AFF4D0A29FD1D8B00D05BD9 /* Assets.xcassets */; };
 		4AFF4D0E29FD1D8B00D05BD9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AFF4D0D29FD1D8B00D05BD9 /* Preview Assets.xcassets */; };
+		8C9670B02A018AC50059B638 /* AttachmentStyleTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8C9670AE2A018AC50059B638 /* AttachmentStyleTest.xcdatamodeld */; };
+		8C9670B52A0235610059B638 /* TestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9670B42A0235610059B638 /* TestController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		4AFF4D0829FD1D8A00D05BD9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4AFF4D0A29FD1D8B00D05BD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4AFF4D0D29FD1D8B00D05BD9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8C9670AF2A018AC50059B638 /* AttachmentStyleTest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AttachmentStyleTest.xcdatamodel; sourceTree = "<group>"; };
+		8C9670B42A0235610059B638 /* TestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,9 +69,8 @@
 		4AFF4D0529FD1D8A00D05BD9 /* MC1_H2K */ = {
 			isa = PBXGroup;
 			children = (
-				4AFF4D1629FD1DAC00D05BD9 /* ViewModel */,
+				8C9670B32A0235330059B638 /* Model */,
 				4AFF4D1529FD1DA700D05BD9 /* View */,
-				4AFF4D1429FD1DA000D05BD9 /* Model */,
 				4AFF4D0629FD1D8A00D05BD9 /* MC1_H2KApp.swift */,
 				4AFF4D0829FD1D8A00D05BD9 /* ContentView.swift */,
 				4AFF4D0A29FD1D8B00D05BD9 /* Assets.xcassets */,
@@ -84,13 +87,6 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		4AFF4D1429FD1DA000D05BD9 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		4AFF4D1529FD1DA700D05BD9 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -104,11 +100,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		4AFF4D1629FD1DAC00D05BD9 /* ViewModel */ = {
+		8C9670B32A0235330059B638 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8C9670AE2A018AC50059B638 /* AttachmentStyleTest.xcdatamodeld */,
+				8C9670B42A0235610059B638 /* TestController.swift */,
 			);
-			path = ViewModel;
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,7 +188,9 @@
 				4ADD3B9029FD2B15003C3BCF /* BigButtonTemplate.swift in Sources */,
 				4AFF4D0929FD1D8A00D05BD9 /* ContentView.swift in Sources */,
 				4ADD3B9429FD2B2E003C3BCF /* HomeTestPageView.swift in Sources */,
+				8C9670B02A018AC50059B638 /* AttachmentStyleTest.xcdatamodeld in Sources */,
 				4ADD3B9629FD2B3B003C3BCF /* ProgressBarTemplate.swift in Sources */,
+				8C9670B52A0235610059B638 /* TestController.swift in Sources */,
 				4ADD3B9229FD2B21003C3BCF /* TestPageView.swift in Sources */,
 				4ADD3B8E29FD2B0A003C3BCF /* QuestionTemplate.swift in Sources */,
 				4AFF4D0729FD1D8A00D05BD9 /* MC1_H2KApp.swift in Sources */,
@@ -414,6 +414,19 @@
 			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		8C9670AE2A018AC50059B638 /* AttachmentStyleTest.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8C9670AF2A018AC50059B638 /* AttachmentStyleTest.xcdatamodel */,
+			);
+			currentVersion = 8C9670AF2A018AC50059B638 /* AttachmentStyleTest.xcdatamodel */;
+			path = AttachmentStyleTest.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4AFF4CFB29FD1D8A00D05BD9 /* Project object */;
 }

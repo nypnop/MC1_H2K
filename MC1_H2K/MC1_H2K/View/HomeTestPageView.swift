@@ -10,6 +10,7 @@ import SwiftUI
 import SwiftUI
 
 struct HomeTestPageView: View {
+    @Environment(\.managedObjectContext) var testObjContext
     @State var placeholder = false
     var body: some View {
         NavigationView{

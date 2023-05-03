@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct MC1_H2KApp: App {
+    @StateObject private var testController = TestController()
+    
     var body: some Scene {
         WindowGroup {
             HomeTestPageView()
+                .environment(\.managedObjectContext, testController.container.viewContext)
         }
     }
 }
