@@ -27,7 +27,7 @@ struct ResultPageView: View {
                         Button(action: {
                             
                         }){
-                            Label("Expore To PDF", systemImage: "square.and.arrow.up.fill")
+                            Label("Export to PDF", systemImage: "square.and.arrow.up.fill")
                         }
                         .buttonStyle( PdfButtonTemplate(width: 111, height:24) )
                         .padding(.bottom,15)
