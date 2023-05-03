@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Charts
 
 struct HomeView: View{
     var body: some View{
@@ -26,94 +27,120 @@ struct HomeView: View{
 }
 
 struct SecondHomeView: View{
+    
+    @State var cards = [
+        ("Title 1", "Action 1", "Description 1"),
+        ("Title 2", "Action 2", "Description 2"),
+        ("Title 3", "Action 3", "Description 3"),
+        ("Title 4", "Action 4", "Description 4"),
+        ("Title 5", "Action 5", "Description 5")
+    ]
+    
     var body: some View{
-        VStack{
-            //App Logo
-            
-            //Dark Mode Button
-            
-            HStack{
-                //Your Attachment Style
-                
-                //See More Button
-            }
-            
-            //Child Attachment Style
-            
-            HStack{
-                //Compatibility with Other
-                
-                //See More Button
-            }
-            
-            //Parent Attachment Style
-            
-            //Compatibility Rate
-            
-            HStack{
-                //Bar
-                
-                //Heart
-            }
-            
-            HStack{
-                //Suggestion Text
-                
-                //See More Button
-            }
-            
-            //Suggestion Box
-            VStack{
-                VStack {
-                    HStack {
-                        Text("Perkuat Komunikasi")
-                            .font(.title3)
-                            .bold()
-                            .multilineTextAlignment(.leading)
-                            .foregroundColor(Color(UIColor(named: "teal600")!))
-                            .padding(.horizontal)
-
-                        Spacer()
-                        
-                        Button(action: {
-                         //action
-                        }, label: {
-                            Text("Hubungi Sekarang")
-                                .font(.caption2.bold())
-                                .foregroundColor(Color("teal600"))
-                                .padding()
-                                .background(
-                                Color("teal100")
-                                    .cornerRadius(50)
-                                )
-                                
-                                
-                        })
-                                
-                    }
-                    Group{
-                        HStack {
-                            Text("Lorem ipsum dolor sit amet consectetur. Risus lorem cursus mollis lectus id. Sed curabitur nibh purus semper nisi pellentesque pulvinar. Risus mattis morbi at sed odio pharetra. Condimentum consequat eget bibendum nam nec dolor a tellus venenatis. Vitae sodales commodo sodales etiam nascetur morbi.")
-                                .padding(.bottom,1)
-                                .padding(.leading)
-                                .padding(.trailing,1)
-                                .font(.caption)
-                            Spacer()
-                        }
-                        
-                    }
-                    .foregroundColor(.black)
-                    .multilineTextAlignment(.leading)
-                    .font(.caption)
+        NavigationView() {
+            VStack(alignment: .leading){
+                HStack{
+                    //Your Attachment Style
+                    Text("Your Attachment Style")
+                        .font(.title3)
+                        .bold()
+                    
+                    //See More Button
+                    Text("See More")
+                        .font(.caption)
+                        .foregroundColor(Color("teal600"))
+                    Spacer()
                 }
-                .frame(width: .infinity, height: .infinity)
-                    .padding()
-                    .background(RoundedRectangle(cornerRadius: 10).fill(Color(UIColor(named: "teal25")!)))
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color(UIColor(named: "teal500")!), lineWidth:1))
-                    .padding()
+                .padding(.horizontal, 24)
+                
+                //Child Attachment Style
+                HStack(){
+                    Image("Avatar-FA")
+                        .resizable()
+                        .frame(width: 32, height: 32)
+                    
+                    VStack(alignment: .leading){
+                        Text("Fearful Avoidant")
+                            .font(.body)
+                        
+                        Text("Child Attachment Style")
+                            .font(.caption)
+                            .foregroundColor(Color("GrayLight"))
+                    }
+                    
+                }
+                .padding(.horizontal, 24)
+                
+                HStack{
+                    //Compatibility with Other
+                    Text("Compatibility with Other")
+                        .font(.title3)
+                        .bold()
+                    
+                    //See More Button
+                    Text("See More")
+                        .font(.caption)
+                        .foregroundColor(Color("teal600"))
+                    Spacer()
+                }
+                .padding(.horizontal, 24)
+                
+                
+                //Parent Attachment Style
+                HStack(){
+                    Image("Avatar-DA")
+                        .resizable()
+                        .frame(width: 32, height: 32)
+                    
+                    VStack(alignment: .leading){
+                        Text("Dismissive-Avoidant")
+                            .font(.body)
+                        
+                        Text("Parent Attachment Style")
+                            .font(.caption)
+                            .foregroundColor(Color("GrayLight"))
+                    }
+                    
+                }
+                .padding(.horizontal, 24)
+                
+                //Compatibility Rate Text
+                Text("Compatibility Rate")
+                    .font(.caption)
+                    .foregroundColor(Color("GrayLight"))
+                    .padding(.horizontal, 24)
+                    .padding(.top)
+                
+                //Compatibility Rate Chart
+                CompatibilityRate()
+                
+                HStack(){
+                    //Suggestion Text
+                    Text("Suggestions")
+                        .font(.title3)
+                        .bold()
+                    
+                    //See More Button
+                    Text("See More")
+                        .font(.caption)
+                        .foregroundColor(Color("teal600"))
+                    Spacer()
+                }
+                .padding(.horizontal, 24)
+                
+                //Suggestion Box
+                
+                ScrollView {
+                    VStack {
+                        ForEach(cards.indices, id: \.self) { index in
+                            SuggestionCard(actionTitle: $cards[index].0, action: $cards[index].1, actionDescription: $cards[index].2)
+                        }
+                    }
+                }
             }
+            
+            .navigationTitle("Summary")
+            .edgesIgnoringSafeArea(.bottom)
         }
     }
     
