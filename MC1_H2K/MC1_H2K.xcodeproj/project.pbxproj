@@ -251,11 +251,8 @@
 				4AFF4D0929FD1D8A00D05BD9 /* ContentView.swift in Sources */,
 				1100896E29FD48FB00E1ADFE /* ResultGraph.swift in Sources */,
 				4ADD3B9429FD2B2E003C3BCF /* HomeTestPageView.swift in Sources */,
-<<<<<<< HEAD
 				1114513A2A02138E007D7D15 /* AppliedSuggestionPageView.swift in Sources */,
-=======
 				8DC1C9E92A00C7230004A3C0 /* Home.swift in Sources */,
->>>>>>> 4b943f4d126f4e1bfab472d989df39953ca68b8b
 				4ADD3B9629FD2B3B003C3BCF /* ProgressBarTemplate.swift in Sources */,
 				1100897029FD492F00E1ADFE /* ResultDescription.swift in Sources */,
 				11C3F9F72A0081250024C8AB /* CompatibilityResult.swift in Sources */,
