@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct CompatibilityHistory: View {
+    @FetchRequest(entity: Compatibility.entity(), sortDescriptors: [NSSortDescriptor(key: "date", ascending: false)])
+    private var comp: FetchedResults<Compatibility>
     var body: some View {
         VStack(alignment:.leading){
-            ForEach((1...2), id: \.self) {_ in
-                CardHistoryCompatibility()
+            ForEach(comp, id: \.self) {comps in
+                CardHistoryCompatibility(styleName: comps.yourAS ?? "Not Found", otherStyle: comps.otherAS ?? "Not Found", date: comps.date ?? Date.now)
             }.padding(.bottom,-8)
         }.frame(maxWidth: .infinity)
             .padding()
@@ -24,7 +26,9 @@ struct CompatibilityHistory: View {
     }
 }
 struct CardHistoryCompatibility: View{
-    @State var styleName : String = "Fearful-Avoidant"
+    var styleName : String
+    var otherStyle : String
+    var date : Date
     @State var imageName : String = "Avatar-FA"
     var body: some View{
         HStack(alignment:.top){
@@ -38,10 +42,13 @@ struct CardHistoryCompatibility: View{
                     .foregroundColor(Color("teal100"))
             }.padding(.trailing,5)
             VStack(alignment:.leading){
-                Text("12:56 PM, 28 April 2023")
-                    .foregroundColor(Color("GrayLight"))
-                    .font(.caption2)
-                ComparisonStyle(styleName: $styleName, imageName: $imageName)
+                HStack{
+                    Text(date, style: .date)
+                    Text(date, style: .time)
+                }
+                .foregroundColor(Color("GrayLight"))
+                .font(.caption2)
+                ComparisonStyle(styleName: styleName, otherStyleName: otherStyle, otherimageName: $imageName, imageName: $imageName)
             }
             Spacer()
         }

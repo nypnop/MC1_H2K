@@ -19,7 +19,7 @@ struct AppliedSuggestionPageView: View {
                             .foregroundColor(Color("GrayLight"))
                         Spacer()
                     }
-                    ComparisonStyle(styleName: $styleName, imageName: $imageName)
+                    ComparisonStyle(styleName: "$styleName", otherStyleName: "$styleName", otherimageName: $imageName, imageName: $imageName)
                 }.padding(.horizontal, 16)
                 .navigationBarTitle("Applied Suggestion")
                 .edgesIgnoringSafeArea(.bottom)

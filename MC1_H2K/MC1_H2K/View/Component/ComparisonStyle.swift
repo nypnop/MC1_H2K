@@ -4,11 +4,12 @@
 //
 //  Created by Bayu Alif Farisqi on 03/05/23.
 //
-
 import SwiftUI
 
 struct ComparisonStyle: View {
-    @Binding var styleName: String
+    var styleName: String
+    var otherStyleName: String
+    @Binding var otherimageName: String
     @Binding var imageName: String
     @State var styleTitle: String = "Attachment Style"
     var body: some View {
@@ -28,12 +29,12 @@ struct ComparisonStyle: View {
                 }
             }
             HStack{
-                Image(imageName)
+                Image(otherimageName)
                     .resizable()
                     .scaledToFit()
                     .frame(maxWidth: 32)
                 VStack(alignment: .leading){
-                    Text(styleName)
+                    Text(otherStyleName)
                         .font(.body)
                         .bold()
                     Text(styleTitle)
@@ -47,6 +48,6 @@ struct ComparisonStyle: View {
 
 struct ComparisonStyle_Previews: PreviewProvider {
     static var previews: some View {
-        ComparisonStyle(styleName: .constant("Avoidant"), imageName: .constant("Avatar-FA"))
+        ComparisonStyle(styleName: "Avoidant", otherStyleName: "Kontol", otherimageName: .constant("Avatar-FA"), imageName: .constant("Avatar-FA"))
     }
 }
