@@ -28,12 +28,12 @@ class TestController: ObservableObject {
         }
     }
     
-    func addQuestion(questionPrompt: String, tags: String, context: NSManagedObjectContext ) {
-        let question = AttachmentTestData(context: context)
-        question.id = UUID()
-        question.questionPrompt = questionPrompt
-        question.tags = tags
-        
-        save(context: context)
-    }
+//    func addQuestion(questionPrompt: String, tags: String, context: NSManagedObjectContext ) {
+//        let question = AttachmentTestData(context: context)
+//        question.id = UUID()
+//        question.questionPrompt = questionPrompt
+//        question.tags = tags
+//
+//        save(context: context)
+//    }
 }
