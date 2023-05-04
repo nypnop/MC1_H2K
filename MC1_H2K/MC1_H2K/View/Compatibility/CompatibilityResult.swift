@@ -7,17 +7,20 @@
 
 import SwiftUI
 import Charts
-struct resultCompatibilityRate: Identifiable{
-    var resultRateNumber: Double
-    var id = UUID()
-}
-
-var resultRate: [resultCompatibilityRate] = [
-    resultCompatibilityRate(resultRateNumber: 20)
-]
+//struct resultCompatibilityRate: Identifiable{
+//    var resultRateNumber: Double
+//    var id = UUID()
+//}
+//
+//var resultRate: [resultCompatibilityRate] = [
+//    resultCompatibilityRate(resultRateNumber: 20)
+//]
 
 struct CompatibilityResult: View {
-    @State var styleName : String = "Fearful-Avoidant"
+    @FetchRequest(entity: Compatibility.entity(), sortDescriptors: [NSSortDescriptor(key: "date", ascending: false)])
+    private var comp: FetchedResults<Compatibility>
+//    var resultRate: Double
+//    @State var styleName : String = "Fearful-Avoidant"
     @State var imageName : String = "Avatar-FA"
     var body: some View {
         VStack(alignment:.leading){
@@ -30,19 +33,18 @@ struct CompatibilityResult: View {
                 Spacer()
             }
             VStack(alignment:.leading){
-                ComparisonStyle(styleName: $styleName, imageName: $imageName)
+                ComparisonStyle(styleName: !comp.isEmpty ? comp[0].yourAS ?? "Not Found" : "Not Found", otherStyleName: !comp.isEmpty ? comp[0].otherAS ?? "Not Found" : "Not Found", otherimageName: $imageName, imageName: $imageName)
             }
             VStack(alignment: .leading){
                 Text("Compatibility Rate")
                     .font(.caption)
                     .foregroundColor(Color("GrayLight"))
-                Chart(resultRate){
-                    item in
-                    BarMark(x: .value("rate", item.resultRateNumber)
+                Chart{
+                    BarMark(x: .value("rate", !comp.isEmpty ? comp[0].rate : 0)
                     )
                     .foregroundStyle(Color("teal500"))
                     .annotation(position: .trailing){
-                        Text(String(format: "♥%.0f%", item.resultRateNumber))
+                        Text(String(format: "♥%.0f%", !comp.isEmpty ? comp[0].rate : 0))
                             .font(.caption2)
                     }
                 }
@@ -52,16 +54,16 @@ struct CompatibilityResult: View {
                 .chartYAxis(.hidden)
             }.padding(.top,8)
             VStack(alignment: .leading){
-                Text("Compatibility Rate")
+                Text("Comments")
                     .font(.caption)
                     .foregroundColor(Color("GrayLight"))
                     .padding(.bottom,1)
-                Text("Kamu perlu berkomunikasi sering-sering!")
+                Text(!comp.isEmpty ? "\(comp[0].comment ?? "Not Found")" : "Not found")
                     .font(.footnote)
             }.padding(.top,8)
             VStack{
                 Button(action: {
-                    //Action
+//                    print(comp)
                 }, label: {
                     Text("Improve it Now")
                         .font(.body)

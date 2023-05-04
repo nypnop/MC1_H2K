@@ -9,6 +9,7 @@ import SwiftUI
 
 
 struct CompatibilityInput: View {
+    @StateObject var viewModel = CompatibilityViewModel()
     let roleOptions = ["Children", "Parent"]
     let styleOption = ["Secure","Anxious","Dismissive Avoidant","Fearful-Avoidant"]
     @State private var selectedRoleOption = "Children"
@@ -57,7 +58,9 @@ struct CompatibilityInput: View {
             }.frame(maxWidth: .infinity, maxHeight: 180)
             VStack{
                 Button(action: {
-                   //Action
+                    viewModel.addCompatibility(yourAS: selectedStyleOption, otherAS: selectedOtherStyleOption, role: selectedRoleOption, comment: "You Good ?")
+//                    print("\($selectedRoleOption.self)")
+//                    print(viewModel.compatibilityArray)
                 }, label: {
                     Text("Submit")
                         .font(.body)
