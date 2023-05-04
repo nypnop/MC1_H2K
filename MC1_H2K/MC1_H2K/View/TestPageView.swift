@@ -22,7 +22,7 @@ struct TestPageView: View {
         }
         
         .navigationTitle("Attachment Style Test")
-        .edgesIgnoringSafeArea(.bottom)
+//        .edgesIgnoringSafeArea(.bottom)
     }
 }
 
