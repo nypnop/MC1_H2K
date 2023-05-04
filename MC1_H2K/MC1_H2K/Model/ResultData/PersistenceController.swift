@@ -30,27 +30,3 @@ struct PersistenceController {
         
     }
 }
-
-//    func addQuestion(questionPrompt: String, tags: String, context: NSManagedObjectContext ) {
-//        let question = AttachmentTestData(context: context)
-//        question.id = UUID()
-//        question.questionPrompt = questionPrompt
-//        question.tags = tags
-//
-//        save(context: context)
-//    }
-//
-//    func addTestResult(type: String, secure: Int64, avoidant: Int64, anxious: Int64, date: Date, disorganize: Int64, context: NSManagedObjectContext) {
-//        let resultData = ResultData(context: context)
-//        resultData.id = UUID()
-//        resultData.date = Date()
-//        resultData.type = type
-//        resultData.secure = secure
-//        resultData.anxious = anxious
-//        resultData.avoidant = avoidant
-//        resultData.disorganize = disorganize
-//
-//        save(context: context)
-//    }
-    
-    

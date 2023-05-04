@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ResultPageView: View {
+    @FetchRequest(entity: ResultData.entity(), sortDescriptors: [NSSortDescriptor(key: "date", ascending: false)])
+    private var resultData: FetchedResults<ResultData>
+    @StateObject var viewModel = ResultViewModel()
     @State private var index = 0
     public init() {
         UISegmentedControl.appearance().selectedSegmentTintColor = UIColor.white
@@ -19,7 +22,7 @@ struct ResultPageView: View {
     var body: some View {
         VStack{
             VStack{
-                Image("Avatar-FA")
+                Image(resultData[0].type == "Secure" ? "Avatar-SE" : resultData[0].type == "Anxious" ? "Avatar-AX" : resultData[0].type == "Fearful-Avoidant" ? "Avatar-FA" : resultData[0].type == "Dismissive Avoidant" ? "Avatar-DA" : "")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 140)
@@ -33,7 +36,7 @@ struct ResultPageView: View {
                         .padding(.bottom,15)
                         .offset(x: 80)
                     }
-                Text("Fearful-Avoidant")
+                Text(resultData[0].type ?? "Not Found")
                     .font(.body)
                     .bold()
                     .padding(.top,10)
@@ -56,10 +59,10 @@ struct ResultPageView: View {
             }
             ScrollView{
                 if index == 0{
-                    ResultDescription()
+                    ResultDescription(type: !resultData.isEmpty ? resultData[0].type! : "")
                 }
                 else if index == 1{
-                    ResultGraph()
+                    ResultGraph(secure: !resultData.isEmpty ? resultData[0].secure : 0, avoidant: !resultData.isEmpty ? resultData[0].avoidant : 0, anxious: !resultData.isEmpty ? resultData[0].anxious : 0, disorganize: !resultData.isEmpty ? resultData[0].disorganize : 0)
                 }else{
                     ResultHistory()
                 }
@@ -69,6 +72,10 @@ struct ResultPageView: View {
         .padding(.horizontal,8)
         .navigationTitle("Attachment Style Result")
         .edgesIgnoringSafeArea(.bottom)
+        .onAppear() {
+            print(viewModel.resultArray)
+            print(resultData)
+        }
     }
 }
 

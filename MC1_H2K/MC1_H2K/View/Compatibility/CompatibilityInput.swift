@@ -59,8 +59,7 @@ struct CompatibilityInput: View {
             VStack{
                 Button(action: {
                     viewModel.addCompatibility(yourAS: selectedStyleOption, otherAS: selectedOtherStyleOption, role: selectedRoleOption, comment: "You Good ?")
-//                    print("\($selectedRoleOption.self)")
-//                    print(viewModel.compatibilityArray)
+                    print(viewModel.compatibilityArray)
                 }, label: {
                     Text("Submit")
                         .font(.body)

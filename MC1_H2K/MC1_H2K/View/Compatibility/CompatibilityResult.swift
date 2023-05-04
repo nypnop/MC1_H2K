@@ -87,6 +87,9 @@ struct CompatibilityResult: View {
                     .stroke(Color("teal500"), lineWidth:1))
             .padding(.top)
             .padding(.horizontal,24)
+//            .onAppear() {
+//                print(comp)
+//            }
     }
 }
 

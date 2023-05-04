@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct ResultHistory: View {
+    @FetchRequest(entity: ResultData.entity(), sortDescriptors: [NSSortDescriptor(key: "date", ascending: false)])
+    private var resultData: FetchedResults<ResultData>
     var body: some View {
         VStack(alignment:.leading){
-            ForEach((1...5), id: \.self) {_ in
-                CardHistory()
+            ForEach(resultData, id: \.self) {history in
+                CardHistory(type: history.type ?? "Not Found", date: history.date ?? Date(), dateString: "")
             }.padding(.bottom,-8)
         }.frame(maxWidth: .infinity)
             .padding()
@@ -22,7 +24,12 @@ struct ResultHistory: View {
             .padding()
     }
 }
+
 struct CardHistory: View{
+    var type: String
+    var date: Date
+    @State var dateString: String
+    
     var body: some View{
         
         HStack(alignment:.top){
@@ -36,16 +43,16 @@ struct CardHistory: View{
                     .foregroundColor(Color("teal100"))
             }.padding(.trailing,5)
             VStack(alignment:.leading){
-                Text("12:56 PM, 28 April 2023")
+                Text(dateString)
                     .foregroundColor(Color("GrayLight"))
                     .font(.caption2)
                 HStack{
-                    Image("Avatar-FA")
+                    Image(type == "Secure" ? "Avatar-SE" : type == "Anxious" ? "Avatar-AX" : type == "Fearful-Avoidant" ? "Avatar-FA" : type == "Dismissive Avoidant" ? "Avatar-DA" : "")
                         .resizable()
                         .scaledToFit()
                         .frame(maxWidth: 64)
                     VStack(alignment: .leading){
-                        Text("Secure")
+                        Text(type)
                             .font(.body)
                             .bold()
                         Text("Attachment Style")
@@ -55,6 +62,17 @@ struct CardHistory: View{
                 }
             }
             Spacer()
+        }
+        .onAppear() {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "HH:mm a dd MMMM yyyy"
+            dateFormatter.timeZone = TimeZone(secondsFromGMT: 7 * 60 * 60)
+            dateFormatter.amSymbol = "AM"
+            dateFormatter.pmSymbol = "PM"
+            dateString = dateFormatter.string(from: date)
+            print(dateString)
+            print(type)
+            print(date)
         }
         
     }

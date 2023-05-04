@@ -9,16 +9,16 @@ import SwiftUI
 
 struct TestPageView: View {
     @Environment(\.presentationMode) var presentationMode
-//    @Binding var selectedCount: Int
+    
     @State var progressValue: Double = 0
     @State var progressPercantage: Float = 0
     @State var isSubmit: Bool = false
     @State var size: Double = 0.5
     @State var opacity: Double = 0.5
-    @State var secure: Int = 0
-    @State var avoidant: Int = 0
-    @State var anxious: Int = 0
-    @State var disorganize: Int = 0
+    @State var secure: Int64 = 0
+    @State var avoidant: Int64 = 0
+    @State var anxious: Int64 = 0
+    @State var disorganize: Int64 = 0
     let questionList: [Question] = [
 //                SECURE
         Question(questionPrompt: "Saya merasa santai dan nyaman berada bersama orang tua saya", tags: "secure", point: 0),
@@ -69,7 +69,9 @@ struct TestPageView: View {
     var body: some View {
             ScrollView {
                 LazyVStack(alignment: .center, spacing: 32, pinnedViews: !isSubmit ? [.sectionHeaders, .sectionFooters]:.sectionHeaders){
-                    Section(header: ProgressBarTemplate(value: $progressPercantage).frame(height:4), footer:FooterView(isSubmit: $isSubmit,progressValue: $progressPercantage).opacity(!isSubmit ? 1 : 0)){
+                    Section(header: ProgressBarTemplate(value: $progressPercantage).frame(height:4),
+                            footer:FooterView(isSubmit: $isSubmit, progressValue: $progressPercantage, secure: $secure, avoidant: $avoidant, anxious: $anxious, disorganize: $disorganize).opacity(!isSubmit ? 1 : 0))
+                    {
                         if(!isSubmit){
                             ForEach(Array(questionList.enumerated()), id: \.element.id) { index, question in
                                 QuestionView(number: index + 1, questionPrompt: question.questionPrompt, tags: question.tags, isClick: false, progressValue: $progressValue, progressPercantage: $progressPercantage, secure: $secure, avoidant: $avoidant, anxious: $anxious, disorganize: $disorganize)
@@ -121,10 +123,6 @@ struct TestPageView: View {
     }
 }
 
-func CalculatePoint(tags: String, point: Int) {
-    
-}
-
 struct Question: Identifiable {
     let id = UUID()
     let questionPrompt: String
@@ -139,13 +137,20 @@ struct TestPageView_Previews: PreviewProvider {
 }
 
 struct FooterView: View {
+    @StateObject var viewModel = ResultViewModel()
+    
     @Binding var isSubmit: Bool
     @Binding var progressValue: Float
+    @Binding var secure: Int64
+    @Binding var avoidant: Int64
+    @Binding var anxious: Int64
+    @Binding var disorganize: Int64
     var body: some View{
         VStack {
             Button(action: {
                 isSubmit=true
                 progressValue=1.0
+                viewModel.addTestResult(secure: secure, avoidant: avoidant, anxious: anxious, disorganize: disorganize)
             }) {
                 Label("Submit", image: "check-icon")
             }

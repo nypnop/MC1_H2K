@@ -14,17 +14,19 @@ struct styleType: Identifiable{
     var id = UUID()
 }
 
-var data: [styleType] = [
-    styleType(type: "Secure", count: 50),
-    styleType(type: "Anxious", count: 50),
-    styleType(type: "Dismissive-Avoidant", count: 55),
-    styleType(type: "Fearful-Avoidant", count: 100)
-]
-
 
 struct ResultGraph: View {
-    
+    @State var data: [styleType] = [
+        styleType(type: "Secure", count: 0),
+        styleType(type: "Anxious", count: 0),
+        styleType(type: "Dismissive-Avoidant", count: 0),
+        styleType(type: "Fearful-Avoidant", count: 0)
+    ]
     @State var isChartAnimate : Bool = false
+    var secure: Int64
+    var avoidant: Int64
+    var anxious: Int64
+    var disorganize: Int64
     
     var body: some View {
         Chart(data){
@@ -63,6 +65,16 @@ struct ResultGraph: View {
         .chartXScale(domain: 0...110)
         .frame(width: .infinity, height: 292)
         .onAppear{
+            print(secure)
+            print(anxious)
+            print(avoidant)
+            print(disorganize)
+            data = [
+                styleType(type: "Secure", count: Double((secure/40) * 100)),
+                styleType(type: "Anxious", count: Double((anxious/40) * 100)),
+                styleType(type: "Dismissive-Avoidant", count: Double((avoidant/40) * 100)),
+                styleType(type: "Fearful-Avoidant", count: Double((disorganize/40) * 100))
+            ]
             withAnimation(.easeIn(duration: 2)){
                 isChartAnimate = true
             }
@@ -72,7 +84,7 @@ struct ResultGraph: View {
     
     struct ResultGraph_Previews: PreviewProvider {
         static var previews: some View {
-            ResultGraph()
+            ResultGraph(secure: 0, avoidant: 0, anxious: 0, disorganize: 0)
                 .previewLayout(PreviewLayout.sizeThatFits)
                 .padding()
                 .previewDisplayName("Graph")

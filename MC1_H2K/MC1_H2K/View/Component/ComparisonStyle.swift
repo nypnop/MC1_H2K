@@ -48,6 +48,6 @@ struct ComparisonStyle: View {
 
 struct ComparisonStyle_Previews: PreviewProvider {
     static var previews: some View {
-        ComparisonStyle(styleName: "Avoidant", otherStyleName: "Kontol", otherimageName: .constant("Avatar-FA"), imageName: .constant("Avatar-FA"))
+        ComparisonStyle(styleName: "Avoidant", otherStyleName: "Secure", otherimageName: .constant("Avatar-FA"), imageName: .constant("Avatar-FA"))
     }
 }
