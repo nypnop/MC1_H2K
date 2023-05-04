@@ -136,23 +136,6 @@ struct HomeTestPageView: View {
                         
                 }
                 .buttonStyle( BigButtonTemplate(width: 342, height:25) )
-                TabView {
-                        Text("")
-                            .tabItem {
-                                Image(systemName: "heart.fill")
-                                Text("Favourites")
-                        }
-                        Text("")
-                            .tabItem {
-                                Image(systemName: "person.fill")
-                                Text("Friends")
-                        }
-                        Text("")
-                            .tabItem {
-                                Image(systemName: "mappin.circle.fill")
-                                Text("Nearby")
-                        }
-                }
             }
             .padding()
         }

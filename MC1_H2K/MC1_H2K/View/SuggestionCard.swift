@@ -12,6 +12,7 @@ struct SuggestionCard: View {
     @Binding var CardTitle : String
     @Binding var CardAction : String
     @Binding var CardDescription : String
+    @Binding var CardLink : String
     
     var body: some View {
         VStack {
@@ -22,7 +23,10 @@ struct SuggestionCard: View {
                     .padding(.horizontal)
                 
                 Spacer()
-                Button(action: {}, label: {
+                Button(action: {
+                    let CardURL = URL(string: CardLink)!
+                    UIApplication.shared.open(CardURL)
+                }, label: {
                     Text(CardAction)
                         .font(.caption2.bold())
                         .foregroundColor(Color("teal600"))
@@ -58,7 +62,7 @@ struct SuggestionCard: View {
     
     struct ResultGraph_Previews: PreviewProvider {
         static var previews: some View {
-            SuggestionCard(CardTitle: .constant("Instructions"), CardAction: .constant("Hubungi Sekarang"), CardDescription: .constant("Lorem ipsum dolor sit amet consectetur. Risus lorem cursus mollis lectus id. Sed curabitur nibh purus semper nisi pellentesque pulvinar. Risus mattis morbi at sed odio pharetra. Condimentum consequat eget bibendum nam nec dolor a tellus venenatis. Vitae sodales commodo sodales etiam nascetur morbi."))
+            SuggestionCard(CardTitle: .constant("Instructions"), CardAction: .constant("Hubungi Sekarang"), CardDescription: .constant("Lorem ipsum dolor sit amet consectetur. Risus lorem cursus mollis lectus id. Sed curabitur nibh purus semper nisi pellentesque pulvinar. Risus mattis morbi at sed odio pharetra. Condimentum consequat eget bibendum nam nec dolor a tellus venenatis. Vitae sodales commodo sodales etiam nascetur morbi."), CardLink: .constant("contacts://"))
                 .previewLayout(PreviewLayout.sizeThatFits)
                 .previewDisplayName("Graph")
         }

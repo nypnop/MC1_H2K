@@ -8,6 +8,22 @@
 import SwiftUI
 import Charts
 
+struct Home: View{
+    
+    @State var isDataAvailable : Bool = false
+    
+    var body: some View{
+        VStack{
+            if isDataAvailable{
+                HomeView()
+            }
+            else{
+                SecondHomeView()
+            }
+        }
+    }
+}
+
 struct HomeView: View{
     var body: some View{
         VStack{
@@ -29,11 +45,11 @@ struct HomeView: View{
 struct SecondHomeView: View{
     
     @State var cards = [
-        ("Title 1", "Action 1", "Description 1"),
-        ("Title 2", "Action 2", "Description 2"),
-        ("Title 3", "Action 3", "Description 3"),
-        ("Title 4", "Action 4", "Description 4"),
-        ("Title 5", "Action 5", "Description 5")
+        ("Title 1", "Action 1", "Description 1", "people://"),
+        ("Title 2", "Action 2", "Description 2","https://wa.me/"),
+        ("Title 3", "Action 3", "Description 3","https://grab.com/"),
+        ("Title 4", "Action 4", "Description 4","https://gojek.com/"),
+        ("Title 5", "Action 5", "Description 5","https://wa.me/")
     ]
     
     var body: some View{
@@ -135,7 +151,7 @@ struct SecondHomeView: View{
                     
                         VStack {
                             ForEach(cards.indices, id: \.self) { index in
-                                SuggestionCard(CardTitle: $cards[index].0, CardAction: $cards[index].1, CardDescription: $cards[index].2)
+                                SuggestionCard(CardTitle: $cards[index].0, CardAction: $cards[index].1, CardDescription: $cards[index].2, CardLink: $cards[index].3)
                                 
                             }
                         
