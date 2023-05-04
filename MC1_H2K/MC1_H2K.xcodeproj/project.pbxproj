@@ -18,6 +18,8 @@
 		11C3F9F72A0081250024C8AB /* CompatibilityResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C3F9F62A0081250024C8AB /* CompatibilityResult.swift */; };
 		11C3F9F92A0081370024C8AB /* CompatibilityHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C3F9F82A0081370024C8AB /* CompatibilityHistory.swift */; };
 		11C3F9FB2A0081550024C8AB /* CompatibilityInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C3F9FA2A0081550024C8AB /* CompatibilityInput.swift */; };
+		11F358C12A033E2D004DE863 /* ConversationStarter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F358C02A033E2D004DE863 /* ConversationStarter.swift */; };
+		11F358C32A034984004DE863 /* SuggestionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F358C22A034984004DE863 /* SuggestionCard.swift */; };
 		4ADD3B8E29FD2B0A003C3BCF /* QuestionTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADD3B8D29FD2B0A003C3BCF /* QuestionTemplate.swift */; };
 		4ADD3B9029FD2B15003C3BCF /* BigButtonTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADD3B8F29FD2B15003C3BCF /* BigButtonTemplate.swift */; };
 		4ADD3B9229FD2B21003C3BCF /* TestPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADD3B9129FD2B21003C3BCF /* TestPageView.swift */; };
@@ -42,6 +44,9 @@
 		11C3F9F62A0081250024C8AB /* CompatibilityResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityResult.swift; sourceTree = "<group>"; };
 		11C3F9F82A0081370024C8AB /* CompatibilityHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityHistory.swift; sourceTree = "<group>"; };
 		11C3F9FA2A0081550024C8AB /* CompatibilityInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityInput.swift; sourceTree = "<group>"; };
+		11F358BD2A027242004DE863 /* MC1-H2K-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "MC1-H2K-Info.plist"; sourceTree = SOURCE_ROOT; };
+		11F358C02A033E2D004DE863 /* ConversationStarter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationStarter.swift; sourceTree = "<group>"; };
+		11F358C22A034984004DE863 /* SuggestionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionCard.swift; sourceTree = "<group>"; };
 		4ADD3B8D29FD2B0A003C3BCF /* QuestionTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTemplate.swift; sourceTree = "<group>"; };
 		4ADD3B8F29FD2B15003C3BCF /* BigButtonTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigButtonTemplate.swift; sourceTree = "<group>"; };
 		4ADD3B9129FD2B21003C3BCF /* TestPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPageView.swift; sourceTree = "<group>"; };
@@ -89,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				1114513C2A021FB1007D7D15 /* ComparisonStyle.swift */,
+				11F358C02A033E2D004DE863 /* ConversationStarter.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -123,6 +129,7 @@
 		4AFF4D0529FD1D8A00D05BD9 /* MC1_H2K */ = {
 			isa = PBXGroup;
 			children = (
+				11F358BD2A027242004DE863 /* MC1-H2K-Info.plist */,
 				4AFF4D1629FD1DAC00D05BD9 /* ViewModel */,
 				4AFF4D1529FD1DA700D05BD9 /* View */,
 				4AFF4D1429FD1DA000D05BD9 /* Model */,
@@ -163,6 +170,7 @@
 				4ADD3B9529FD2B3B003C3BCF /* ProgressBarTemplate.swift */,
 				1100897529FD4CCF00E1ADFE /* PdfButtonTemplate.swift */,
 				8DC1C9E82A00C7230004A3C0 /* Home.swift */,
+				11F358C22A034984004DE863 /* SuggestionCard.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -244,6 +252,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11F358C12A033E2D004DE863 /* ConversationStarter.swift in Sources */,
 				1100897629FD4CCF00E1ADFE /* PdfButtonTemplate.swift in Sources */,
 				1100897229FD495D00E1ADFE /* ResultPageView.swift in Sources */,
 				11C3F9F52A0081130024C8AB /* CompatibilityPageView.swift in Sources */,
@@ -251,6 +260,7 @@
 				4AFF4D0929FD1D8A00D05BD9 /* ContentView.swift in Sources */,
 				1100896E29FD48FB00E1ADFE /* ResultGraph.swift in Sources */,
 				4ADD3B9429FD2B2E003C3BCF /* HomeTestPageView.swift in Sources */,
+				11F358C32A034984004DE863 /* SuggestionCard.swift in Sources */,
 				1114513A2A02138E007D7D15 /* AppliedSuggestionPageView.swift in Sources */,
 				8DC1C9E92A00C7230004A3C0 /* Home.swift in Sources */,
 				4ADD3B9629FD2B3B003C3BCF /* ProgressBarTemplate.swift in Sources */,
@@ -394,6 +404,8 @@
 				DEVELOPMENT_TEAM = 4UQ7P64XP8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MC1-H2K-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "\"\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -424,6 +436,8 @@
 				DEVELOPMENT_TEAM = 4UQ7P64XP8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MC1-H2K-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "\"\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
