@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ResultPageView: View {
     @State private var index = 0
-    init() {
+    public init() {
         UISegmentedControl.appearance().selectedSegmentTintColor = UIColor.white
         let attributes: [NSAttributedString.Key:Any] = [
             .foregroundColor: UIColor(named: "teal600")!

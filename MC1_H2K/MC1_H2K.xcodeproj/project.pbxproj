@@ -12,6 +12,12 @@
 		1100897029FD492F00E1ADFE /* ResultDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100896F29FD492F00E1ADFE /* ResultDescription.swift */; };
 		1100897229FD495D00E1ADFE /* ResultPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100897129FD495D00E1ADFE /* ResultPageView.swift */; };
 		1100897629FD4CCF00E1ADFE /* PdfButtonTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100897529FD4CCF00E1ADFE /* PdfButtonTemplate.swift */; };
+		1114513A2A02138E007D7D15 /* AppliedSuggestionPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111451392A02138E007D7D15 /* AppliedSuggestionPageView.swift */; };
+		1114513D2A021FB1007D7D15 /* ComparisonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1114513C2A021FB1007D7D15 /* ComparisonStyle.swift */; };
+		11C3F9F52A0081130024C8AB /* CompatibilityPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C3F9F42A0081130024C8AB /* CompatibilityPageView.swift */; };
+		11C3F9F72A0081250024C8AB /* CompatibilityResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C3F9F62A0081250024C8AB /* CompatibilityResult.swift */; };
+		11C3F9F92A0081370024C8AB /* CompatibilityHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C3F9F82A0081370024C8AB /* CompatibilityHistory.swift */; };
+		11C3F9FB2A0081550024C8AB /* CompatibilityInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C3F9FA2A0081550024C8AB /* CompatibilityInput.swift */; };
 		4ADD3B8E29FD2B0A003C3BCF /* QuestionTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADD3B8D29FD2B0A003C3BCF /* QuestionTemplate.swift */; };
 		4ADD3B9029FD2B15003C3BCF /* BigButtonTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADD3B8F29FD2B15003C3BCF /* BigButtonTemplate.swift */; };
 		4ADD3B9229FD2B21003C3BCF /* TestPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADD3B9129FD2B21003C3BCF /* TestPageView.swift */; };
@@ -38,6 +44,12 @@
 		1100896F29FD492F00E1ADFE /* ResultDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultDescription.swift; sourceTree = "<group>"; };
 		1100897129FD495D00E1ADFE /* ResultPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultPageView.swift; sourceTree = "<group>"; };
 		1100897529FD4CCF00E1ADFE /* PdfButtonTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfButtonTemplate.swift; sourceTree = "<group>"; };
+		111451392A02138E007D7D15 /* AppliedSuggestionPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppliedSuggestionPageView.swift; sourceTree = "<group>"; };
+		1114513C2A021FB1007D7D15 /* ComparisonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparisonStyle.swift; sourceTree = "<group>"; };
+		11C3F9F42A0081130024C8AB /* CompatibilityPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityPageView.swift; sourceTree = "<group>"; };
+		11C3F9F62A0081250024C8AB /* CompatibilityResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityResult.swift; sourceTree = "<group>"; };
+		11C3F9F82A0081370024C8AB /* CompatibilityHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityHistory.swift; sourceTree = "<group>"; };
+		11C3F9FA2A0081550024C8AB /* CompatibilityInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityInput.swift; sourceTree = "<group>"; };
 		4ADD3B8D29FD2B0A003C3BCF /* QuestionTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTemplate.swift; sourceTree = "<group>"; };
 		4ADD3B8F29FD2B15003C3BCF /* BigButtonTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigButtonTemplate.swift; sourceTree = "<group>"; };
 		4ADD3B9129FD2B21003C3BCF /* TestPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPageView.swift; sourceTree = "<group>"; };
@@ -79,6 +91,33 @@
 				1100897129FD495D00E1ADFE /* ResultPageView.swift */,
 			);
 			path = Result;
+			sourceTree = "<group>";
+		};
+		111451382A021330007D7D15 /* AppliedSuggestions */ = {
+			isa = PBXGroup;
+			children = (
+				111451392A02138E007D7D15 /* AppliedSuggestionPageView.swift */,
+			);
+			path = AppliedSuggestions;
+			sourceTree = "<group>";
+		};
+		1114513B2A021F6D007D7D15 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				1114513C2A021FB1007D7D15 /* ComparisonStyle.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		11C3F9F32A0081070024C8AB /* Compatibility */ = {
+			isa = PBXGroup;
+			children = (
+				11C3F9F42A0081130024C8AB /* CompatibilityPageView.swift */,
+				11C3F9FA2A0081550024C8AB /* CompatibilityInput.swift */,
+				11C3F9F62A0081250024C8AB /* CompatibilityResult.swift */,
+				11C3F9F82A0081370024C8AB /* CompatibilityHistory.swift */,
+			);
+			path = Compatibility;
 			sourceTree = "<group>";
 		};
 		4AFF4CFA29FD1D8A00D05BD9 = {
@@ -278,11 +317,14 @@
 				4ADD3B9629FD2B3B003C3BCF /* ProgressBarTemplate.swift in Sources */,
 				8C9670B92A0354670059B638 /* LottieView.swift in Sources */,
 				1100897029FD492F00E1ADFE /* ResultDescription.swift in Sources */,
+				11C3F9F72A0081250024C8AB /* CompatibilityResult.swift in Sources */,
 				1100896C29FD48D600E1ADFE /* ResultHistory.swift in Sources */,
+				1114513D2A021FB1007D7D15 /* ComparisonStyle.swift in Sources */,
 				4ADD3B9229FD2B21003C3BCF /* TestPageView.swift in Sources */,
 				4ADD3B8E29FD2B0A003C3BCF /* QuestionTemplate.swift in Sources */,
 				8DDC26572A0217DA00E20E39 /* CompatibilityRate.swift in Sources */,
 				4AFF4D0729FD1D8A00D05BD9 /* MC1_H2KApp.swift in Sources */,
+				11C3F9F92A0081370024C8AB /* CompatibilityHistory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,7 +453,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MC1_H2K/Preview Content\"";
-				DEVELOPMENT_TEAM = X836989ZKB;
+				DEVELOPMENT_TEAM = 4UQ7P64XP8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -441,7 +483,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MC1_H2K/Preview Content\"";
-				DEVELOPMENT_TEAM = X836989ZKB;
+				DEVELOPMENT_TEAM = 4UQ7P64XP8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
