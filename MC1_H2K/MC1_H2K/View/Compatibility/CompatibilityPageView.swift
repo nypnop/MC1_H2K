@@ -3,10 +3,8 @@
 //  MC1_H2K
 //
 //  Created by Bayu Alif Farisqi on 02/05/23.
-//
 
 import SwiftUI
-
 
 struct CompatibilityPageView: View {
     @State private var compatibilitySegment = 0

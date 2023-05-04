@@ -8,14 +8,38 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var selectedCount = 0
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        TabView{
+            Home()
+                .tabItem{
+                    Image(systemName: "house.circle")
+                    Text("Home")
+                }
+                .tag(0)
+            HomeTestPageView()
+                .tabItem{
+                    Image(systemName: "questionmark.circle")
+                    Text("Style Test")
+                }
+            ResultPageView()
+                .tabItem{
+                    Image(systemName: "person.circle")
+                    Text("Test Result")
+                }
+            CompatibilityPageView()
+                .tabItem{
+                    Image(systemName: "heart.circle")
+                    Text("Compatibility")
+                }
+            AppliedSuggestionPageView()
+                .tabItem{
+                    Image(systemName: "hand.thumbsup.circle")
+                    Text("Suggestion")
+                }
         }
-        .padding()
+        .accentColor(Color("teal500"))
+
     }
 }
 

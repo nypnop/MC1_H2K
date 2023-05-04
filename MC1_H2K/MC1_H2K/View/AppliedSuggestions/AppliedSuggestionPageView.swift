@@ -3,7 +3,6 @@
 //  MC1_H2K
 //
 //  Created by Bayu Alif Farisqi on 03/05/23.
-//
 
 import SwiftUI
 
