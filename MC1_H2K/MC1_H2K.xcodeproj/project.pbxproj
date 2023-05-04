@@ -21,6 +21,8 @@
 		4AFF4D0929FD1D8A00D05BD9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFF4D0829FD1D8A00D05BD9 /* ContentView.swift */; };
 		4AFF4D0B29FD1D8B00D05BD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AFF4D0A29FD1D8B00D05BD9 /* Assets.xcassets */; };
 		4AFF4D0E29FD1D8B00D05BD9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AFF4D0D29FD1D8B00D05BD9 /* Preview Assets.xcassets */; };
+		8C9670B92A0354670059B638 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9670B82A0354670059B638 /* LottieView.swift */; };
+		8C9670BD2A0356790059B638 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 8C9670BC2A0356790059B638 /* Lottie */; };
 		8D8522512A024904006C9F67 /* SuggestionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8522502A024904006C9F67 /* SuggestionCard.swift */; };
 		8D975F392A025C37007F5F9C /* CompatibilityPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D975F382A025C37007F5F9C /* CompatibilityPageView.swift */; };
 		8D975F3C2A025C83007F5F9C /* AppliedSuggestionPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D975F3B2A025C83007F5F9C /* AppliedSuggestionPageView.swift */; };
@@ -44,6 +46,7 @@
 		4AFF4D0829FD1D8A00D05BD9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4AFF4D0A29FD1D8B00D05BD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4AFF4D0D29FD1D8B00D05BD9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8C9670B82A0354670059B638 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		8D8522502A024904006C9F67 /* SuggestionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionCard.swift; sourceTree = "<group>"; };
 		8D975F382A025C37007F5F9C /* CompatibilityPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityPageView.swift; sourceTree = "<group>"; };
 		8D975F3B2A025C83007F5F9C /* AppliedSuggestionPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppliedSuggestionPageView.swift; sourceTree = "<group>"; };
@@ -56,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C9670BD2A0356790059B638 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,14 +125,10 @@
 		4AFF4D1529FD1DA700D05BD9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8C9670BA2A0354780059B638 /* AttachmentTest */,
 				8D975F3A2A025C6B007F5F9C /* AppliedSuggestions */,
 				8D975F332A025BEE007F5F9C /* Compatibility */,
 				1100896629FD474F00E1ADFE /* Result */,
-				4ADD3B8D29FD2B0A003C3BCF /* QuestionTemplate.swift */,
-				4ADD3B8F29FD2B15003C3BCF /* BigButtonTemplate.swift */,
-				4ADD3B9129FD2B21003C3BCF /* TestPageView.swift */,
-				4ADD3B9329FD2B2E003C3BCF /* HomeTestPageView.swift */,
-				4ADD3B9529FD2B3B003C3BCF /* ProgressBarTemplate.swift */,
 				1100897529FD4CCF00E1ADFE /* PdfButtonTemplate.swift */,
 				8D8522502A024904006C9F67 /* SuggestionCard.swift */,
 				8DC1C9EA2A0111550004A3C0 /* Home */,
@@ -141,6 +141,19 @@
 			children = (
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8C9670BA2A0354780059B638 /* AttachmentTest */ = {
+			isa = PBXGroup;
+			children = (
+				8C9670B82A0354670059B638 /* LottieView.swift */,
+				4ADD3B8D29FD2B0A003C3BCF /* QuestionTemplate.swift */,
+				4ADD3B8F29FD2B15003C3BCF /* BigButtonTemplate.swift */,
+				4ADD3B9129FD2B21003C3BCF /* TestPageView.swift */,
+				4ADD3B9329FD2B2E003C3BCF /* HomeTestPageView.swift */,
+				4ADD3B9529FD2B3B003C3BCF /* ProgressBarTemplate.swift */,
+			);
+			path = AttachmentTest;
 			sourceTree = "<group>";
 		};
 		8D975F332A025BEE007F5F9C /* Compatibility */ = {
@@ -184,6 +197,9 @@
 			dependencies = (
 			);
 			name = MC1_H2K;
+			packageProductDependencies = (
+				8C9670BC2A0356790059B638 /* Lottie */,
+			);
 			productName = MC1_H2K;
 			productReference = 4AFF4D0329FD1D8A00D05BD9 /* MC1_H2K.app */;
 			productType = "com.apple.product-type.application";
@@ -212,6 +228,9 @@
 				Base,
 			);
 			mainGroup = 4AFF4CFA29FD1D8A00D05BD9;
+			packageReferences = (
+				8C9670BB2A0356790059B638 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = 4AFF4D0429FD1D8A00D05BD9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -249,6 +268,7 @@
 				8DC1C9E92A00C7230004A3C0 /* Home.swift in Sources */,
 				8D975F392A025C37007F5F9C /* CompatibilityPageView.swift in Sources */,
 				4ADD3B9629FD2B3B003C3BCF /* ProgressBarTemplate.swift in Sources */,
+				8C9670B92A0354670059B638 /* LottieView.swift in Sources */,
 				1100897029FD492F00E1ADFE /* ResultDescription.swift in Sources */,
 				1100896C29FD48D600E1ADFE /* ResultHistory.swift in Sources */,
 				4ADD3B9229FD2B21003C3BCF /* TestPageView.swift in Sources */,
@@ -457,6 +477,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8C9670BB2A0356790059B638 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8C9670BC2A0356790059B638 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C9670BB2A0356790059B638 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4AFF4CFB29FD1D8A00D05BD9 /* Project object */;
 }
