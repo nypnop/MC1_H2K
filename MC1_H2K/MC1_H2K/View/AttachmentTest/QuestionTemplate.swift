@@ -9,6 +9,12 @@ import SwiftUI
 
 struct QuestionView: View {
     var number:Int
+    var questionPrompt:String
+    var tags:String
+    @State var isClick:Bool = false
+    @Binding var progressValue:Double
+    @Binding var progressPercantage:Float
+    
     var body: some View {
         HStack{
             VStack(spacing:0){
@@ -22,13 +28,13 @@ struct QuestionView: View {
                             .foregroundColor(Color(UIColor(named: "teal600")!))
                     )
                 Rectangle()
-                    .frame(width: 3,height: 144)
+                    .frame(width: 3)
                     .foregroundColor(Color(UIColor(named: "teal100")!))
             }.padding(.trailing,5)
             VStack{
                 VStack {
                     HStack {
-                        Text("I feel anjing")
+                        Text(questionPrompt)
                             .font(.subheadline)
                             .bold()
                             .multilineTextAlignment(.leading)
@@ -39,7 +45,13 @@ struct QuestionView: View {
                         HStack {
                             VStack {
                                 Button{
-                                    
+                                    if !isClick {
+                                        isClick = true
+                                        progressValue += 1
+                                        progressPercantage = Float(progressValue/40)
+                                        print(progressValue)
+                                        print(progressValue/40)
+                                    }
                                 } label:{
                                     Text("Disagree")
                                         .frame(width: 130,height:20)
@@ -54,7 +66,13 @@ struct QuestionView: View {
                                         )
                                 }
                                 Button{
-                                    
+                                    if !isClick {
+                                        isClick = true
+                                        progressValue += 1
+                                        progressPercantage = Float(progressValue/40)
+                                        print(progressValue)
+                                        print(progressValue/40)
+                                    }
                                 } label:{
                                     Text("Mostly Agree")
                                         .frame(width: 130,height:20)
@@ -72,7 +90,13 @@ struct QuestionView: View {
                             }
                             VStack {
                                 Button{
-                                    
+                                    if !isClick {
+                                        isClick = true
+                                        progressValue += 1
+                                        progressPercantage = Float(progressValue/40)
+                                        print(progressValue)
+                                        print(progressValue/40)
+                                    }
                                 } label:{
                                     Text("Sometimes Agree")
                                         .frame(width: 130,height:20)
@@ -89,7 +113,13 @@ struct QuestionView: View {
                                 }
                                 
                                 Button{
-                                    
+                                    if !isClick {
+                                        isClick = true
+                                        progressValue += 1
+                                        progressPercantage = Float(progressValue/40)
+                                        print(progressValue)
+                                        print(progressValue/40)
+                                    }
                                 } label:{
                                     Text("Strongly Agree")
                                         .frame(width: 130,height:20)
@@ -110,7 +140,7 @@ struct QuestionView: View {
                 }
                 .padding(.vertical,18)
                 .padding(.horizontal,16)
-                .frame(width: 302, height: 154)
+                .frame(width: 302)
                 .background(RoundedRectangle(cornerRadius: 10).fill(Color(UIColor(named: "teal25")!)))
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
@@ -118,13 +148,13 @@ struct QuestionView: View {
                 Spacer()
             }
         }
-        .frame(width: 342, height: 170)
+        .frame(width: 342)
     }
 }
 
 struct QuestionView_Previews: PreviewProvider {
     static var previews: some View {
-        QuestionView(number: 1)
+        QuestionView(number: 1, questionPrompt: "Saya mengutamakan kemandirian, saya memiliki kesulitan meminta bantuan ketika dibutuhkan, dan kebanyakan hobi saya kerjakan sendiri.", tags: "secure", isClick: false, progressValue: Binding.constant(1), progressPercantage: Binding.constant(0.0))
     }
 }
 
