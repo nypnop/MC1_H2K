@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var selectedCount = 0
     var body: some View {
         TabView{
             Home()
@@ -15,6 +16,7 @@ struct ContentView: View {
                     Image(systemName: "house.circle")
                     Text("Home")
                 }
+                .tag(0)
             HomeTestPageView()
                 .tabItem{
                     Image(systemName: "questionmark.circle")
