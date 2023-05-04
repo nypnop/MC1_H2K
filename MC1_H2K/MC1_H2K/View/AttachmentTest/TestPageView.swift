@@ -101,7 +101,7 @@ struct TestPageView: View {
                 }
             }
             .navigationBarTitle("Attachment Style Test")
-            .edgesIgnoringSafeArea(.bottom)
+//            .edgesIgnoringSafeArea(.bottom)
             .navigationBarBackButtonHidden(true)
             .navigationBarItems(leading:
                 Button(action: {
