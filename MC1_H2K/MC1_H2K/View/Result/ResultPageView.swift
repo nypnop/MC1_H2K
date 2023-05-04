@@ -68,7 +68,7 @@ struct ResultPageView: View {
         .padding(.top,32)
         .padding(.horizontal,8)
         .navigationTitle("Attachment Style Result")
-        .edgesIgnoringSafeArea(.bottom)
+//        .edgesIgnoringSafeArea(.bottom)
     }
 }
 

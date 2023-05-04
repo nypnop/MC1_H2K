@@ -57,9 +57,6 @@ struct QuestionView: View {
                                     if !isClick {
                                         isClick = true
                                         progressValue += 1
-                                        progressPercantage = Float(progressValue/40)
-                                        print(progressValue)
-                                        print(progressValue/40)
                                     }
                                     isD.toggle()
                                     isA = false
@@ -77,6 +74,7 @@ struct QuestionView: View {
                                         }
                                     } else {
                                         isClick = false
+                                        progressValue -= 1
                                         if tags == "secure" {
                                             secure -= 1
                                         } else if tags == "avoindant" {
@@ -87,6 +85,9 @@ struct QuestionView: View {
                                             disorganize -= 1
                                         }
                                     }
+                                    progressPercantage = Float(progressValue/40)
+                                    print(progressValue)
+                                    print(progressValue/40)
 
                                 } label:{
                                     Text("Disagree")
@@ -106,9 +107,6 @@ struct QuestionView: View {
                                     if !isClick {
                                         isClick = true
                                         progressValue += 1
-                                        progressPercantage = Float(progressValue/40)
-                                        print(progressValue)
-                                        print(progressValue/40)
                                     }
                                     isD = false
                                     isA = false
@@ -126,6 +124,7 @@ struct QuestionView: View {
                                         }
                                     } else {
                                         isClick = false
+                                        progressValue -= 1
                                         if tags == "secure" {
                                             secure -= 3
                                         } else if tags == "avoindant" {
@@ -136,6 +135,9 @@ struct QuestionView: View {
                                             disorganize -= 3
                                         }
                                     }
+                                    progressPercantage = Float(progressValue/40)
+                                    print(progressValue)
+                                    print(progressValue/40)
                                 } label:{
                                     Text("Mostly Agree")
                                         .frame(width: 130,height:20)
@@ -157,9 +159,6 @@ struct QuestionView: View {
                                     if !isClick {
                                         isClick = true
                                         progressValue += 1
-                                        progressPercantage = Float(progressValue/40)
-                                        print(progressValue)
-                                        print(progressValue/40)
                                     }
                                     isD = false
                                     isA.toggle()
@@ -177,6 +176,7 @@ struct QuestionView: View {
                                         }
                                     } else {
                                         isClick = false
+                                        progressValue -= 1
                                         if tags == "secure" {
                                             secure -= 2
                                         } else if tags == "avoindant" {
@@ -187,6 +187,9 @@ struct QuestionView: View {
                                             disorganize -= 2
                                         }
                                     }
+                                    progressPercantage = Float(progressValue/40)
+                                    print(progressValue)
+                                    print(progressValue/40)
                                 } label:{
                                     Text("Sometimes Agree")
                                         .frame(width: 130,height:20)
@@ -207,9 +210,6 @@ struct QuestionView: View {
                                     if !isClick {
                                         isClick = true
                                         progressValue += 1
-                                        progressPercantage = Float(progressValue/40)
-                                        print(progressValue)
-                                        print(progressValue/40)
                                     }
                                     isD = false
                                     isA = false
@@ -227,6 +227,7 @@ struct QuestionView: View {
                                         }
                                     } else {
                                         isClick = false
+                                        progressValue -= 1
                                         isSA = false
                                         if tags == "secure" {
                                             secure -= 4
@@ -238,6 +239,9 @@ struct QuestionView: View {
                                             disorganize -= 4
                                         }
                                     }
+                                    progressPercantage = Float(progressValue/40)
+                                    print(progressValue)
+                                    print(progressValue/40)
                                 } label:{
                                     Text("Strongly Agree")
                                         .frame(width: 130,height:20)

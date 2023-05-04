@@ -121,7 +121,7 @@ struct TestPageView: View {
     }
 }
 
-func CalculatePoint(tags: String, point: Int) {
+func CalculatePoint() {
     
 }
 
@@ -146,6 +146,7 @@ struct FooterView: View {
             Button(action: {
                 isSubmit=true
                 progressValue=1.0
+                CalculatePoint()
             }) {
                 Label("Submit", image: "check-icon")
             }
