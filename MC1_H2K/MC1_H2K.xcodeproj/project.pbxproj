@@ -47,6 +47,7 @@
 		1100896F29FD492F00E1ADFE /* ResultDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultDescription.swift; sourceTree = "<group>"; };
 		1100897129FD495D00E1ADFE /* ResultPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultPageView.swift; sourceTree = "<group>"; };
 		1100897529FD4CCF00E1ADFE /* PdfButtonTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfButtonTemplate.swift; sourceTree = "<group>"; };
+		118E2FBD2A04FAE00025475F /* MC1-H2K-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "MC1-H2K-Info.plist"; sourceTree = SOURCE_ROOT; };
 		4A2DA20E2A0397F90023ACCE /* CompatibilityHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompatibilityHistory.swift; sourceTree = "<group>"; };
 		4A2DA20F2A0397F90023ACCE /* CompatibilityInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompatibilityInput.swift; sourceTree = "<group>"; };
 		4A2DA2102A0397F90023ACCE /* CompatibilityResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompatibilityResult.swift; sourceTree = "<group>"; };
@@ -137,6 +138,7 @@
 		4AFF4D0529FD1D8A00D05BD9 /* MC1_H2K */ = {
 			isa = PBXGroup;
 			children = (
+				118E2FBD2A04FAE00025475F /* MC1-H2K-Info.plist */,
 				4A36AE8A2A03E53500BFE759 /* ViewModel */,
 				8C9670C12A035C620059B638 /* Model */,
 				4AFF4D1529FD1DA700D05BD9 /* View */,
@@ -468,6 +470,7 @@
 				DEVELOPMENT_TEAM = 4UQ7P64XP8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MC1-H2K-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -498,6 +501,7 @@
 				DEVELOPMENT_TEAM = 4UQ7P64XP8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MC1-H2K-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

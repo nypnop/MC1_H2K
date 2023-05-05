@@ -22,7 +22,7 @@ struct CompatibilityHistory: View {
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(Color("teal500"), lineWidth:1))
             .padding(.top)
-        .padding(.horizontal,24)
+        .padding(.horizontal,16)
     }
 }
 

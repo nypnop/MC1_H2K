@@ -16,49 +16,46 @@ struct CompatibilityPageView: View {
         UISegmentedControl.appearance().setTitleTextAttributes(attributes, for: .normal)
     }
     var body: some View {
-        VStack{
-            VStack(alignment: .leading){
-                HStack{
-                    Text("Compatibility")
-                        .font(.title)
-                        .bold()
-                    Spacer()
-                }
-                .padding(.horizontal,24)
-                HStack{
-                    Text("See your relationship compatibility with your parent/child!")
-                        .font(.caption)
-                        .foregroundColor(Color("GrayLight"))
-                    Spacer()
-                }
-                .padding(.horizontal,24)
-                //PICKER TAB SEGMENT
-                Picker(
-                    selection:$compatibilitySegment,
-                    label: Text("Picker"),
-                    content: {
-                        Text("Input").tag(0)
-                        Text("Result").tag(1)
-                        Text("History").tag(2)
-                    })
-                .background(Color("teal25"))
-                .pickerStyle(.segmented)
-                .padding(.top)
-                .padding(.horizontal,24)
-            }
+        NavigationView {
             ScrollView{
-                if compatibilitySegment == 0{
-                    CompatibilityInput()
+                VStack{
+                    VStack(alignment: .leading){
+        
+                        HStack{
+                            Text("See your relationship compatibility with your parent/child!")
+                                .font(.caption)
+                                .foregroundColor(Color("GrayLight"))
+                            Spacer()
+                        }
+                        .padding(.horizontal,16)
+                        //PICKER TAB SEGMENT
+                        Picker(
+                            selection:$compatibilitySegment,
+                            label: Text("Picker"),
+                            content: {
+                                Text("Input").tag(0)
+                                Text("Result").tag(1)
+                                Text("History").tag(2)
+                            })
+                        .background(Color("teal25"))
+                        .pickerStyle(.segmented)
+                        .padding(.top,12)
+                        .padding(.horizontal,16)
+                    }
+                    
+                    if compatibilitySegment == 0{
+                        CompatibilityInput()
+                    }
+                    else if compatibilitySegment == 1{
+                        CompatibilityResult()
+                    }else{
+                        CompatibilityHistory()
+                    }
+                    
                 }
-                else if compatibilitySegment == 1{
-                    CompatibilityResult()
-                }else{
-                    CompatibilityHistory()
-                }
-            }
+            }.navigationBarTitle("Compatibility")
+                .edgesIgnoringSafeArea(.bottom)
         }
-        .padding(.top,32)
-        .edgesIgnoringSafeArea(.bottom)
     }
 }
 
