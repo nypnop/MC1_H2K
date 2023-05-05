@@ -19,6 +19,8 @@
 		4A36AE8C2A03E54600BFE759 /* CompatibilityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A36AE8B2A03E54600BFE759 /* CompatibilityViewModel.swift */; };
 		4A36AE8E2A03E55700BFE759 /* ResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A36AE8D2A03E55700BFE759 /* ResultViewModel.swift */; };
 		4AB3DC2D2A04A14A0087D145 /* ConversationStarter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3DC2C2A04A14A0087D145 /* ConversationStarter.swift */; };
+		4AB3DC302A04EAC50087D145 /* PrimaryPSuggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3DC2F2A04EAC50087D145 /* PrimaryPSuggestion.swift */; };
+		4AB3DC322A04EF6E0087D145 /* PrimaryCSuggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB3DC312A04EF6E0087D145 /* PrimaryCSuggestion.swift */; };
 		4ADD3B8E29FD2B0A003C3BCF /* QuestionTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADD3B8D29FD2B0A003C3BCF /* QuestionTemplate.swift */; };
 		4ADD3B9029FD2B15003C3BCF /* BigButtonTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADD3B8F29FD2B15003C3BCF /* BigButtonTemplate.swift */; };
 		4ADD3B9229FD2B21003C3BCF /* TestPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADD3B9129FD2B21003C3BCF /* TestPageView.swift */; };
@@ -52,6 +54,9 @@
 		4A36AE8B2A03E54600BFE759 /* CompatibilityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityViewModel.swift; sourceTree = "<group>"; };
 		4A36AE8D2A03E55700BFE759 /* ResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewModel.swift; sourceTree = "<group>"; };
 		4AB3DC2C2A04A14A0087D145 /* ConversationStarter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationStarter.swift; sourceTree = "<group>"; };
+		4AB3DC2E2A04E5780087D145 /* ToDo LIST.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "ToDo LIST.md"; sourceTree = "<group>"; };
+		4AB3DC2F2A04EAC50087D145 /* PrimaryPSuggestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryPSuggestion.swift; sourceTree = "<group>"; };
+		4AB3DC312A04EF6E0087D145 /* PrimaryCSuggestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryCSuggestion.swift; sourceTree = "<group>"; };
 		4ADD3B8D29FD2B0A003C3BCF /* QuestionTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTemplate.swift; sourceTree = "<group>"; };
 		4ADD3B8F29FD2B15003C3BCF /* BigButtonTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigButtonTemplate.swift; sourceTree = "<group>"; };
 		4ADD3B9129FD2B21003C3BCF /* TestPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPageView.swift; sourceTree = "<group>"; };
@@ -139,6 +144,7 @@
 				4AFF4D0829FD1D8A00D05BD9 /* ContentView.swift */,
 				4AFF4D0A29FD1D8B00D05BD9 /* Assets.xcassets */,
 				4AFF4D0C29FD1D8B00D05BD9 /* Preview Content */,
+				4AB3DC2E2A04E5780087D145 /* ToDo LIST.md */,
 			);
 			path = MC1_H2K;
 			sourceTree = "<group>";
@@ -183,6 +189,8 @@
 			isa = PBXGroup;
 			children = (
 				8C9670C22A035C760059B638 /* ResultData */,
+				4AB3DC2F2A04EAC50087D145 /* PrimaryPSuggestion.swift */,
+				4AB3DC312A04EF6E0087D145 /* PrimaryCSuggestion.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -304,6 +312,7 @@
 				1100897229FD495D00E1ADFE /* ResultPageView.swift in Sources */,
 				8C9670C42A035C8D0059B638 /* PersistenceController.swift in Sources */,
 				8C9670C02A035C250059B638 /* ResultData.xcdatamodeld in Sources */,
+				4AB3DC322A04EF6E0087D145 /* PrimaryCSuggestion.swift in Sources */,
 				4ADD3B9029FD2B15003C3BCF /* BigButtonTemplate.swift in Sources */,
 				4AFF4D0929FD1D8A00D05BD9 /* ContentView.swift in Sources */,
 				1100896E29FD48FB00E1ADFE /* ResultGraph.swift in Sources */,
@@ -322,6 +331,7 @@
 				4A2DA2122A0397F90023ACCE /* CompatibilityInput.swift in Sources */,
 				4A2DA2112A0397F90023ACCE /* CompatibilityHistory.swift in Sources */,
 				4ADD3B9229FD2B21003C3BCF /* TestPageView.swift in Sources */,
+				4AB3DC302A04EAC50087D145 /* PrimaryPSuggestion.swift in Sources */,
 				4ADD3B8E29FD2B0A003C3BCF /* QuestionTemplate.swift in Sources */,
 				8DDC26572A0217DA00E20E39 /* CompatibilityRate.swift in Sources */,
 				4A2DA2132A0397F90023ACCE /* CompatibilityResult.swift in Sources */,

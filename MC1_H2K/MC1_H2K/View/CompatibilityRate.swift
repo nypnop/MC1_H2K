@@ -10,32 +10,31 @@ import Charts
 
 struct compatibilityRate: Identifiable{
     var rateNumber: Double
-    var attachmentType: String
     var id = UUID()
 }
 
 var rate: [compatibilityRate] = [
-    compatibilityRate(rateNumber: 20, attachmentType: "FA")
+    compatibilityRate(rateNumber: 0)
 ]
 
 
 struct CompatibilityRate: View {
-    
+    @FetchRequest(entity: Compatibility.entity(), sortDescriptors: [NSSortDescriptor(key: "date", ascending: false)])
+    private var comp: FetchedResults<Compatibility>
     @State var isAnimated : Bool = false
     
     var body: some View {
         Chart(rate){
             item in
-            BarMark(x: .value("rate", isAnimated ? item.rateNumber : 0),
-                    y: .value("name", item.attachmentType)
+            BarMark(x: .value("rate", isAnimated ?  Double(comp[0].rate) : item.rateNumber)
             )
             .foregroundStyle(Color("teal500"))
             .annotation(position: .trailing){
-                Text(String(format: "♥%.0f%", item.rateNumber))
+                Text(String(format: "♥%.0f%", !comp.isEmpty ? Double(comp[0].rate) : item.rateNumber))
                     .font(.caption2)
             }
         }
-        .chartXScale(domain: 0...100)
+        .chartXScale(domain: 0...110)
         .frame(width: .infinity, height: 40)
         .chartXAxis(.hidden)
         .chartYAxis(.hidden)

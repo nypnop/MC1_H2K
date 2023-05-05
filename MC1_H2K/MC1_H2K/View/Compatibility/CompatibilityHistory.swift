@@ -13,7 +13,7 @@ struct CompatibilityHistory: View {
     var body: some View {
         VStack(alignment:.leading){
             ForEach(comp, id: \.self) {comps in
-                CardHistoryCompatibility(styleName: comps.yourAS ?? "Not Found", otherStyle: comps.otherAS ?? "Not Found", date: comps.date ?? Date.now)
+                CardHistoryCompatibility(styleName: comps.yourAS ?? "Not Found", otherStyle: comps.otherAS ?? "Not Found", date: comps.date ?? Date.now, imageName: comps.image ?? "Not Found", otherImage: comps.image2 ?? "Not Found")
             }.padding(.bottom,-8)
         }.frame(maxWidth: .infinity)
             .padding()
@@ -25,11 +25,13 @@ struct CompatibilityHistory: View {
         .padding(.horizontal,24)
     }
 }
+
 struct CardHistoryCompatibility: View{
     var styleName : String
     var otherStyle : String
     var date : Date
-    @State var imageName : String = "Avatar-FA"
+    var imageName : String
+    var otherImage : String
     var body: some View{
         HStack(alignment:.top){
             VStack(spacing:0){
@@ -48,7 +50,7 @@ struct CardHistoryCompatibility: View{
                 }
                 .foregroundColor(Color("GrayLight"))
                 .font(.caption2)
-                ComparisonStyle(styleName: styleName, otherStyleName: otherStyle, otherimageName: $imageName, imageName: $imageName)
+                ComparisonStyle(styleName: styleName, otherStyleName: otherStyle, otherimageName: otherImage, imageName: imageName)
             }
             Spacer()
         }

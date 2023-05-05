@@ -43,7 +43,8 @@ struct HomeView: View{
 }
 
 struct SecondHomeView: View{
-    
+    @FetchRequest(entity: Compatibility.entity(), sortDescriptors: [NSSortDescriptor(key: "date", ascending: false)])
+    private var comp: FetchedResults<Compatibility>
     @State var cards = [
         ("Title 1", "Action 1", "Description 1", "people://"),
         ("Title 2", "Action 2", "Description 2","https://wa.me/"),
@@ -72,15 +73,15 @@ struct SecondHomeView: View{
                     
                     //Child Attachment Style
                     HStack(){
-                        Image("Avatar-FA")
+                        Image("\(!comp.isEmpty ? comp[0].image ?? "Not Found" : "Not Found")")
                             .resizable()
                             .frame(width: 32, height: 32)
                         
                         VStack(alignment: .leading){
-                            Text("Fearful Avoidant")
+                            Text("\(!comp.isEmpty ? comp[0].yourAS ?? "Not Found" : "Not Found")")
                                 .font(.body)
                             
-                            Text("Child Attachment Style")
+                            Text("\(!comp.isEmpty ? comp[0].role ?? "Children" : "Children") Attachment Style")
                                 .font(.caption)
                                 .foregroundColor(Color("GrayLight"))
                         }
@@ -105,15 +106,15 @@ struct SecondHomeView: View{
                     
                     //Parent Attachment Style
                     HStack(){
-                        Image("Avatar-DA")
+                        Image("\(!comp.isEmpty ? comp[0].image2 ?? "Not Found" : "Not Found")")
                             .resizable()
                             .frame(width: 32, height: 32)
                         
                         VStack(alignment: .leading){
-                            Text("Dismissive-Avoidant")
+                            Text("\(!comp.isEmpty ? comp[0].otherAS ?? "Not Found" : "Not Found")")
                                 .font(.body)
                             
-                            Text("Parent Attachment Style")
+                            Text("\((comp[0].role=="Children" ? "Parent" : comp[0].role) ?? "Parent") Attachment Style")
                                 .font(.caption)
                                 .foregroundColor(Color("GrayLight"))
                         }
