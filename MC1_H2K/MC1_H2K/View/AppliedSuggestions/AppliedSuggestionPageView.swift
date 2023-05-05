@@ -7,8 +7,8 @@
 import SwiftUI
 
 struct AppliedSuggestionPageView: View {
-    @State var styleName : String = "Fearful-Avoidant"
-    @State var imageName : String = "Avatar-FA"
+    @FetchRequest(entity: Compatibility.entity(), sortDescriptors: [NSSortDescriptor(key: "date", ascending: false)])
+    private var comp: FetchedResults<Compatibility>
     @State var cards = [
         ("Title 1", "List", "Description 1","ConversationStarter"),
         ("Title 2", "Telphone Sekarang", "Description 2","whatsapp://"),
@@ -26,7 +26,7 @@ struct AppliedSuggestionPageView: View {
                         Spacer()
                     }.padding(.horizontal, 24)
                         .padding(.bottom)
-                    ComparisonStyle(styleName: styleName, otherStyleName: styleName, otherimageName: imageName, imageName: imageName)
+                    ComparisonStyle(styleName: !comp.isEmpty ? comp[0].yourAS ?? "Not Found" : "Not Found", otherStyleName: !comp.isEmpty ? comp[0].otherAS ?? "Not Found" : "Not Found", otherimageName: !comp.isEmpty ? comp[0].image2 ?? "Not Found" : "Not Found", imageName: !comp.isEmpty ? comp[0].image ?? "Not Found" : "Not Found")
                         .padding(.horizontal, 24)
                         .padding(.bottom)
                     VStack {

@@ -25,6 +25,7 @@ struct CompatibilityHistory: View {
         .padding(.horizontal,24)
     }
 }
+
 struct CardHistoryCompatibility: View{
     var styleName : String
     var otherStyle : String
