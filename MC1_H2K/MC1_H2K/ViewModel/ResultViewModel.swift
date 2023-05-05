@@ -27,22 +27,34 @@ class ResultViewModel: ObservableObject {
             print("DEBUG: Some error occured while fetching")
         }
     }
+    struct Result {
+        let type: String
+        let point: Int64
+    }
     
     func addTestResult(secure: Int64, avoidant: Int64, anxious: Int64, disorganize: Int64) {
         let resultData = ResultData(context: viewContext)
         resultData.id = UUID()
         resultData.date = Date()
-        if secure > anxious && secure > avoidant && secure > disorganize {
-            resultData.type = "Secure"
-        }
-        if anxious > secure && anxious > avoidant && anxious > disorganize {
-            resultData.type = "Anxious"
-        }
-        if avoidant > anxious && avoidant > secure && avoidant > disorganize {
-            resultData.type = "Dismissive Avoidant"
-        }
-        if disorganize > anxious && disorganize > avoidant && disorganize > secure {
-            resultData.type = "Fearful-Avoidant"
+        let result = [
+            Result(type: "Secure", point: secure),
+            Result(type: "Anxious", point: anxious),
+            Result(type: "Dismissive Avoidant", point: avoidant),
+            Result(type: "Fearful-Avoidant", point: disorganize)
+        ]
+        
+        if let maxPoint = result.map({ $0.point }).max() {
+            let maxPointType = result.filter { $0.point == maxPoint }
+            
+            if maxPointType.count == 1 {
+                resultData.type = maxPointType[0].type
+            } else {
+                let points = maxPointType.map { $0.type }
+                resultData.type = points[0]
+                print("The array is \(points)")
+            }
+        } else {
+            print("The array is empty")
         }
         resultData.secure = secure
         resultData.anxious = anxious

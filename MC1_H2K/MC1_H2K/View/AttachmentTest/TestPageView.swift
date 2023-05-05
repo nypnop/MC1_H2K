@@ -19,6 +19,7 @@ struct TestPageView: View {
     @State var avoidant: Int64 = 0
     @State var anxious: Int64 = 0
     @State var disorganize: Int64 = 0
+    @Binding var selection: Int
     let questionList: [Question] = [
 //                SECURE
         Question(questionPrompt: "Saya merasa santai dan nyaman berada bersama orang tua saya", tags: "secure", point: 0),
@@ -39,7 +40,7 @@ struct TestPageView: View {
         Question(questionPrompt: "Saya merasa orang tua saya selalu ada namun saya merasa lebih senang sendiri.", tags: "avoidant", point: 0),
         Question(questionPrompt: "Saya lebih memilih memiliki hubungan yang sekedarnya saja dibanding hubungan yang penuh komitmen.", tags: "avoidant", point: 0),
         Question(questionPrompt: "Saya lebih memilih hubungan dengan hewan dibanding manusia.", tags: "avoidant", point: 0),
-        Question(questionPrompt: "Saya sulit untuk kontak mata dengan orang lain.", tags: "secure", point: 0),
+        Question(questionPrompt: "Saya sulit untuk kontak mata dengan orang lain.", tags: "avoidant", point: 0),
         Question(questionPrompt: "Mudah untuk saya memikirkan sesuatu dibanding mengekspresikan diri saya secara emosional.", tags: "avoidant", point: 0),
         Question(questionPrompt: "Ketika saya kehilangan satu hubungan, pertama saya akan merasa lega, kemudian saya merasa depresi.", tags: "avoidant", point: 0),
 //                ANXIOUS
@@ -54,16 +55,16 @@ struct TestPageView: View {
         Question(questionPrompt: "Saya mau dekat dengan orang tua saya namun juga merasa marah pada mereka. Setelah menanti kedatangan orang tua saya, saya malah mencari masalah dengan mereka.", tags: "anxious", point: 0),
         Question(questionPrompt: "Saya sering kali kehilangan diri saya kepada orang tua saya sehinggan merasakan yang mereka rasakan dan menginginkan yang mereka inginkan.", tags: "anxious", point: 0),
 //                DISORGANIZED
-        Question(questionPrompt: "Ketika saya cukup dekat dengan seseorang, kadang saya merasa ketakutan.", tags: "disorganized", point: 0),
-        Question(questionPrompt: "Ketika dihadapi dengan masalah, saya sering merasa buntu dan rasanya masalahnya tidak terselesaikan.", tags: "disorganized", point: 0),
-        Question(questionPrompt: "Saya punya respon yang cukup mengejutkan ketika tiba tiba seseorang mendekati saya.", tags: "disorganized", point: 0),
-        Question(questionPrompt: "Orang dekat saya sering mengatakan kepada saya bahwa saya suka ngatur.", tags: "disorganized", point: 0),
-        Question(questionPrompt: "Saya sering membayangkan hal yang terburuk terjadi dalam hubungan saya.", tags: "disorganized", point: 0),
-        Question(questionPrompt: "Perlindungan sering terasa sulit dijangkau. Saya kesulitan untuk merasa aman dengan orang terdekat saya.", tags: "disorganized", point: 0),
-        Question(questionPrompt: "Saya memiliki kesulitan mengingat dan mendiskusikan perasaan saya terkait masalah dalam hubungan masa lalu saya.", tags: "disorganized", point: 0),
-        Question(questionPrompt: "Saya ingin memiliki hubungan dekat dengan seseorang namun saya juga merasa takut dengan orang tersebut.", tags: "disorganized", point: 0),
-        Question(questionPrompt: "Insting saya untuk melindungi diri sering kali hilang saat keadaan ia dibutuhkan, sehingga saya menjadi diam, atau panik sendiri.", tags: "disorganized", point: 0),
-        Question(questionPrompt: "Karena saya sering kebingungan dan tidak teratur, terutama saat stress, penting untuk partner saya mengatur segala sesuatu menjadi sederhana dan jelas.", tags: "disorganized", point: 0),
+        Question(questionPrompt: "Ketika saya cukup dekat dengan seseorang, kadang saya merasa ketakutan.", tags: "disorganize", point: 0),
+        Question(questionPrompt: "Ketika dihadapi dengan masalah, saya sering merasa buntu dan rasanya masalahnya tidak terselesaikan.", tags: "disorganize", point: 0),
+        Question(questionPrompt: "Saya punya respon yang cukup mengejutkan ketika tiba tiba seseorang mendekati saya.", tags: "disorganize", point: 0),
+        Question(questionPrompt: "Orang dekat saya sering mengatakan kepada saya bahwa saya suka ngatur.", tags: "disorganize", point: 0),
+        Question(questionPrompt: "Saya sering membayangkan hal yang terburuk terjadi dalam hubungan saya.", tags: "disorganize", point: 0),
+        Question(questionPrompt: "Perlindungan sering terasa sulit dijangkau. Saya kesulitan untuk merasa aman dengan orang terdekat saya.", tags: "disorganize", point: 0),
+        Question(questionPrompt: "Saya memiliki kesulitan mengingat dan mendiskusikan perasaan saya terkait masalah dalam hubungan masa lalu saya.", tags: "disorganize", point: 0),
+        Question(questionPrompt: "Saya ingin memiliki hubungan dekat dengan seseorang namun saya juga merasa takut dengan orang tersebut.", tags: "disorganize", point: 0),
+        Question(questionPrompt: "Insting saya untuk melindungi diri sering kali hilang saat keadaan ia dibutuhkan, sehingga saya menjadi diam, atau panik sendiri.", tags: "disorganize", point: 0),
+        Question(questionPrompt: "Karena saya sering kebingungan dan tidak teratur, terutama saat stress, penting untuk partner saya mengatur segala sesuatu menjadi sederhana dan jelas.", tags: "disorganize", point: 0),
     ]
     
     var body: some View {
@@ -92,13 +93,14 @@ struct TestPageView: View {
                                     }
                                 }
                                 .padding(.top,140)
-                                Button(action: {
-                                    
-                                }) {
-                                    Label("Go To Result", image: "back-icon")
-                                }
-                                .buttonStyle(BigButtonTemplate(width: 300, height:25))
-                                .padding(.top,-140)
+//                                NavigationLink(destination: ResultPageView()){
+                                    Button(action: {
+                                        selection = 2
+                                    }) {
+                                            Label("Go To Result", image: "Icon")
+                                        }
+                                    .buttonStyle( BigButtonTemplate(width: 300, height:25, isAll: true) )
+//                                }
                             }
                             .navigationBarBackButtonHidden(true)
                         }
@@ -132,7 +134,7 @@ struct Question: Identifiable {
 
 struct TestPageView_Previews: PreviewProvider {
     static var previews: some View {
-        TestPageView()
+        TestPageView(selection: Binding.constant(0))
     }
 }
 
@@ -148,16 +150,18 @@ struct FooterView: View {
     var body: some View{
         VStack {
             Button(action: {
-                isSubmit=true
-                progressValue=1.0
-                viewModel.addTestResult(secure: secure, avoidant: avoidant, anxious: anxious, disorganize: disorganize)
+//                progressValue=1.0
+                if progressValue == 1.0{
+                    isSubmit=true
+                    viewModel.addTestResult(secure: secure, avoidant: avoidant, anxious: anxious, disorganize: disorganize)
+                }
             }) {
                 Label("Submit", image: "check-icon")
             }
             .padding(.bottom,28)
             .padding(.top,-50)
             .padding([.trailing,.leading],40)
-            .buttonStyle( BigButtonTemplate(width: 342, height:25))
+            .buttonStyle( BigButtonTemplate(width: 342, height:25, isAll: progressValue == 1.0 ? true : false))
             .background(.white)
             
         }

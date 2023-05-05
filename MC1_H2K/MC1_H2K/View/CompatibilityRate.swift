@@ -36,7 +36,7 @@ struct CompatibilityRate: View {
             }
         }
         .chartXScale(domain: 0...100)
-        .frame(width: .infinity, height: 40)
+        .frame(height: 40)
         .chartXAxis(.hidden)
         .chartYAxis(.hidden)
         .padding(.horizontal,24)
