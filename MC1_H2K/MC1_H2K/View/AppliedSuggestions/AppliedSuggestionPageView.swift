@@ -26,7 +26,7 @@ struct AppliedSuggestionPageView: View {
                         Spacer()
                     }.padding(.horizontal, 24)
                         .padding(.bottom)
-                    ComparisonStyle(styleName: styleName, otherStyleName: styleName, otherimageName: $imageName, imageName: $imageName)
+                    ComparisonStyle(styleName: styleName, otherStyleName: styleName, otherimageName: imageName, imageName: imageName)
                         .padding(.horizontal, 24)
                         .padding(.bottom)
                     VStack {

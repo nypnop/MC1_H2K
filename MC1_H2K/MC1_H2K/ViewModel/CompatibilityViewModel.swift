@@ -28,7 +28,7 @@ class CompatibilityViewModel: ObservableObject {
         }
     }
     
-    func addCompatibility(yourAS:String,otherAS:String,role:String,comment:String){
+    func addCompatibility(yourAS:String,otherAS:String,role:String,comment:String,image:String,image2:String){
         let comp = Compatibility(context: viewContext)
         comp.id = UUID()
         comp.yourAS = yourAS
@@ -37,6 +37,9 @@ class CompatibilityViewModel: ObservableObject {
         comp.date = Date.now
         comp.role = role
         comp.rate = calculateRate(yourAS: yourAS, otherAS: otherAS)
+        comp.image = mappingImage(aS: yourAS)
+        comp.image2 = mappingImage(aS: otherAS)
+        
         save()
         self.fetchCompatibility()
     }
@@ -48,6 +51,16 @@ class CompatibilityViewModel: ObservableObject {
                                         "Fearful-Avoidant":0]
         return ((dictRate[yourAS] ?? 0)+(dictRate[otherAS] ?? 0))
     }
+    
+    func mappingImage(aS: String) -> String{
+        let dictImage: [String:String] = ["Secure":"Avatar-SE",
+                                          "Anxious":"Avatar-AX",
+                                          "Dismissive Avoidant":"Avatar-DA",
+                                          "Fearful-Avoidant":"Avatar-FA"]
+        return dictImage[aS] ?? "Not Found"
+                                          
+    }
+    
 //    Secure","Anxious","Dismissive Avoidant","Fearful-Avoidant
     func save() {
         do{

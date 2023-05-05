@@ -58,7 +58,7 @@ struct CompatibilityInput: View {
             }.frame(maxWidth: .infinity, maxHeight: 180)
             VStack{
                 Button(action: {
-                    viewModel.addCompatibility(yourAS: selectedStyleOption, otherAS: selectedOtherStyleOption, role: selectedRoleOption, comment: "You Good ?")
+                    viewModel.addCompatibility(yourAS: selectedStyleOption, otherAS: selectedOtherStyleOption, role: selectedRoleOption, comment: "You Good ?", image: selectedStyleOption, image2: selectedOtherStyleOption)
                     print(viewModel.compatibilityArray)
                 }, label: {
                     Text("Submit")
