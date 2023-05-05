@@ -7,16 +7,16 @@
 
 import SwiftUI
 import Charts
-//struct resultCompatibilityRate: Identifiable{
-//    var resultRateNumber: Double
-//    var id = UUID()
-//}
-//
-//var resultRate: [resultCompatibilityRate] = [
-//    resultCompatibilityRate(resultRateNumber: 20)
-//]
+struct resultCompatibilityRate: Identifiable{
+    var resultRateNumber: Double
+    var id = UUID()
+}
 
+var resultRate: [resultCompatibilityRate] = [
+    resultCompatibilityRate(resultRateNumber: 0)
+]
 struct CompatibilityResult: View {
+    @State var isAnimated : Bool = false
     @FetchRequest(entity: Compatibility.entity(), sortDescriptors: [NSSortDescriptor(key: "date", ascending: false)])
     private var comp: FetchedResults<Compatibility>
 //    var resultRate: Double
@@ -39,19 +39,25 @@ struct CompatibilityResult: View {
                 Text("Compatibility Rate")
                     .font(.caption)
                     .foregroundColor(Color("GrayLight"))
-                Chart{
-                    BarMark(x: .value("rate", !comp.isEmpty ? comp[0].rate : 0)
+                Chart(resultRate){
+                    item in
+                    BarMark(x: .value("rate", isAnimated ?  Double(comp[0].rate) : item.resultRateNumber)
                     )
                     .foregroundStyle(Color("teal500"))
                     .annotation(position: .trailing){
-                        Text(String(format: "♥%.0f%", !comp.isEmpty ? comp[0].rate : 0))
+                        Text(String(format: "♥%.0f%", !comp.isEmpty ? Double(comp[0].rate) : item.resultRateNumber))
                             .font(.caption2)
                     }
                 }
-                .chartXScale(domain: 0...100)
+                .chartXScale(domain: 0...110)
                 .frame(height: 40)
                 .chartXAxis(.hidden)
                 .chartYAxis(.hidden)
+                .onAppear{
+                    withAnimation(.easeIn(duration: 2)){
+                        isAnimated = true
+                    }
+                }
             }.padding(.top,8)
             VStack(alignment: .leading){
                 Text("Comments")
