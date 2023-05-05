@@ -22,7 +22,7 @@ struct ResultPageView: View {
     var body: some View {
         VStack{
             VStack{
-                Image(resultData[0].type == "Secure" ? "Avatar-SE" : resultData[0].type == "Anxious" ? "Avatar-AX" : resultData[0].type == "Fearful-Avoidant" ? "Avatar-FA" : resultData[0].type == "Dismissive Avoidant" ? "Avatar-DA" : "")
+                Image(!resultData.isEmpty && resultData[0].type == "Secure" ? "Avatar-SE" : !resultData.isEmpty && resultData[0].type == "Anxious" ? "Avatar-AX" : !resultData.isEmpty && resultData[0].type == "Fearful-Avoidant" ? "Avatar-FA" : !resultData.isEmpty && resultData[0].type == "Dismissive Avoidant" ? "Avatar-DA" : "")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 140)
@@ -36,7 +36,7 @@ struct ResultPageView: View {
                         .padding(.bottom,15)
                         .offset(x: 80)
                     }
-                Text(resultData[0].type ?? "Not Found")
+                Text(!resultData.isEmpty ? resultData[0].type ?? "Not Found" : "Not Found")
                     .font(.body)
                     .bold()
                     .padding(.top,10)

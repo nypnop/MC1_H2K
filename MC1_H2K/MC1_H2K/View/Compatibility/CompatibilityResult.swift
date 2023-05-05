@@ -38,7 +38,7 @@ struct CompatibilityResult: View {
                     .foregroundColor(Color("GrayLight"))
                 Chart(resultRate){
                     item in
-                    BarMark(x: .value("rate", isAnimated ?  Double(comp[0].rate) : item.resultRateNumber)
+                    BarMark(x: .value("rate", isAnimated && !comp.isEmpty ?  Double(comp[0].rate) : item.resultRateNumber)
                     )
                     .foregroundStyle(Color("teal500"))
                     .annotation(position: .trailing){
