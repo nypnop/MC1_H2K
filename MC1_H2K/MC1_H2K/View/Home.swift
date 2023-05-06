@@ -150,7 +150,7 @@ struct SecondHomeView: View{
                             Text("\(!comp.isEmpty ? comp[0].otherAS ?? "Not Found" : "Not Found")")
                                 .font(.body)
                             
-                            Text("\(!comp.isEmpty && comp[0].role=="Children" ? "Parent" : "Children" ?? "Parent") Attachment Style")
+                            Text("\(!comp.isEmpty && comp[0].role=="Children" ? "Parent" : "Children" ) Attachment Style")
                                 .font(.caption)
                                 .foregroundColor(Color("GrayLight"))
                         }
