@@ -9,6 +9,7 @@ import SwiftUI
 struct AppliedSuggestionPageView: View {
     @FetchRequest(entity: Compatibility.entity(), sortDescriptors: [NSSortDescriptor(key: "date", ascending: false)])
     private var comp: FetchedResults<Compatibility>
+    
     @State var cards = [
         ("Title 1", "List", "Description 1","ConversationStarter"),
         ("Title 2", "Telphone Sekarang", "Description 2","whatsapp://"),

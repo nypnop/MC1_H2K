@@ -61,7 +61,13 @@ class CompatibilityViewModel: ObservableObject {
                                           
     }
     
-//    Secure","Anxious","Dismissive Avoidant","Fearful-Avoidant
+    func getImagebyID(id: UUID) -> String{
+        let ans = compatibilityArray.filter { comp in
+            comp.id == id
+        }
+        return ans.first?.image ?? ""
+    }
+    
     func save() {
         do{
             try viewContext.save()
@@ -70,7 +76,7 @@ class CompatibilityViewModel: ObservableObject {
         }
     }
     
-    
+
 }
 
 
