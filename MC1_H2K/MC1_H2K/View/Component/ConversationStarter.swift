@@ -10,15 +10,14 @@ struct CSData: Identifiable {
     let message: String
     let subMessage: String
 }
+
 struct ConversationStarter: View {
-    let CSCards = [
-        CSData(message: "chat wa 1", subMessage: "deskripsi chat wa 1"),
-        CSData(message: "chat wa 2", subMessage: "deskripsi chat wa 2"),
-        CSData(message: "chat wa 3", subMessage: "deskripsi chat wa 3"),
-    ]
+    @StateObject var viewModel = AppliedViewModel()
+    @FetchRequest(entity: Compatibility.entity(), sortDescriptors: [NSSortDescriptor(key: "date", ascending: false)])
+    private var comp: FetchedResults<Compatibility>
     private let pastboard = UIPasteboard.general
     var body: some View {
-            List(CSCards) { card in
+        List(viewModel.showCSCards(aS: !comp.isEmpty ? comp[0].yourAS! : "", role: !comp.isEmpty ? comp[0].role! : "")) { card in
                 VStack(alignment: .leading) {
                     HStack{
                         Text(card.message)
@@ -46,10 +45,6 @@ struct ConversationStarter: View {
                 .edgesIgnoringSafeArea(.bottom)
             }
             .scrollContentBackground(.hidden)
-            
-//            .background(Color("teal25"))
-            
-          
     }
 }
 
