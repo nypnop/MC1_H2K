@@ -26,7 +26,7 @@ struct CompatibilityRate: View {
     var body: some View {
         Chart(rate){
             item in
-            BarMark(x: .value("rate", isAnimated ?  Double(comp[0].rate) : item.rateNumber)
+            BarMark(x: .value("rate", !comp.isEmpty && isAnimated ?  Double(comp[0].rate) : item.rateNumber)
             )
             .foregroundStyle(Color("teal500"))
             .annotation(position: .trailing){

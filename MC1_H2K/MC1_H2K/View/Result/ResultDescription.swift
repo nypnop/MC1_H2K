@@ -21,7 +21,7 @@ struct ResultDescription: View {
                 .foregroundColor(.black)
                 .multilineTextAlignment(.leading)
                 .font(.caption)
-        } .frame(width: .infinity, height: .infinity)
+        }
             .padding()
             .background(RoundedRectangle(cornerRadius: 10).fill(Color(UIColor(named: "teal25")!)))
             .overlay(

@@ -65,16 +65,16 @@ struct ResultGraph: View {
         .chartXScale(domain: 0...110)
         .frame(width: .infinity, height: 292)
         .onAppear{
-            print(secure)
-            print(anxious)
-            print(avoidant)
-            print(disorganize)
             data = [
-                styleType(type: "Secure", count: Double((secure/40) * 100)),
-                styleType(type: "Anxious", count: Double((anxious/40) * 100)),
-                styleType(type: "Dismissive-Avoidant", count: Double((avoidant/40) * 100)),
-                styleType(type: "Fearful-Avoidant", count: Double((disorganize/40) * 100))
+                styleType(type: "Secure", count: Double((secure * 100)/40)),
+                styleType(type: "Anxious", count: Double((anxious * 100)/40)),
+                styleType(type: "Dismissive-Avoidant", count: Double((avoidant * 100)/40)),
+                styleType(type: "Fearful-Avoidant", count: Double((disorganize * 100)/40))
             ]
+            print(secure)
+            print(avoidant)
+            print(anxious)
+            print(disorganize)
             withAnimation(.easeIn(duration: 2)){
                 isChartAnimate = true
             }

@@ -65,7 +65,7 @@ struct QuestionView: View {
                                     if isD {
                                         if tags == "secure" {
                                             secure += 1
-                                        } else if tags == "avoindant" {
+                                        } else if tags == "avoidant" {
                                             avoidant += 1
                                         } else if tags == "anxious" {
                                             anxious += 1
@@ -77,7 +77,7 @@ struct QuestionView: View {
                                         progressValue -= 1
                                         if tags == "secure" {
                                             secure -= 1
-                                        } else if tags == "avoindant" {
+                                        } else if tags == "avoidant" {
                                             avoidant -= 1
                                         } else if tags == "anxious" {
                                             anxious -= 1
@@ -117,7 +117,7 @@ struct QuestionView: View {
                                     if isMA {
                                         if tags == "secure" {
                                             secure += 3
-                                        } else if tags == "avoindant" {
+                                        } else if tags == "avoidant" {
                                             avoidant += 3
                                         } else if tags == "anxious" {
                                             anxious += 3
@@ -129,7 +129,7 @@ struct QuestionView: View {
                                         progressValue -= 1
                                         if tags == "secure" {
                                             secure -= 3
-                                        } else if tags == "avoindant" {
+                                        } else if tags == "avoidant" {
                                             avoidant -= 3
                                         } else if tags == "anxious" {
                                             anxious -= 3
@@ -172,7 +172,7 @@ struct QuestionView: View {
                                     if isA {
                                         if tags == "secure" {
                                             secure += 2
-                                        } else if tags == "avoindant" {
+                                        } else if tags == "avoidant" {
                                             avoidant += 2
                                         } else if tags == "anxious" {
                                             anxious += 2
@@ -184,7 +184,7 @@ struct QuestionView: View {
                                         progressValue -= 1
                                         if tags == "secure" {
                                             secure -= 2
-                                        } else if tags == "avoindant" {
+                                        } else if tags == "avoidant" {
                                             avoidant -= 2
                                         } else if tags == "anxious" {
                                             anxious -= 2
@@ -223,7 +223,7 @@ struct QuestionView: View {
                                     if isSA {
                                         if tags == "secure" {
                                             secure += 4
-                                        } else if tags == "avoindant" {
+                                        } else if tags == "avoidant" {
                                             avoidant += 4
                                         } else if tags == "anxious" {
                                             anxious += 4
@@ -235,7 +235,7 @@ struct QuestionView: View {
                                         progressValue -= 1
                                         if tags == "secure" {
                                             secure -= 4
-                                        } else if tags == "avoindant" {
+                                        } else if tags == "avoidant" {
                                             avoidant -= 4
                                         } else if tags == "anxious" {
                                             anxious -= 4

@@ -11,33 +11,57 @@ import Charts
 struct Home: View{
     
     @State var isDataAvailable : Bool = false
-    
+    @Binding var selection: Int
     var body: some View{
         VStack{
             if isDataAvailable{
-                HomeView()
+                HomeView(selection: $selection)
             }
             else{
-                SecondHomeView()
+                SecondHomeView(selection: $selection)
             }
         }
     }
 }
-
 struct HomeView: View{
+    
+    @Binding var selection: Int
+    
     var body: some View{
         VStack{
-            //App Logo
-            
-            //Dark Mode Button
+
             
             //Illustration Image
+            Image("Avatar-AX")
+                .resizable()
+                .frame(width: 240, height: 240)
+                .padding()
             
             //Text
+            Text("You have not taken the test yet!")
+                .font(.title3.bold())
+                
             
             //Sub-Text
+            Text("Click the button below to take the test")
+                .font(.body)
+                .foregroundColor(Color("GrayLight"))
+                
             
             //Take Test Button
+            Button(action: {}) {
+                NavigationLink(destination: HomeTestPageView(selection: $selection)){
+                    Label("Start the Test", image: "Icon")
+                        .font(.body.bold())
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(
+                            Color("teal500")
+                        )
+                        .cornerRadius(13)
+                }
+                    
+            }
         }
     }
 }
@@ -52,9 +76,10 @@ struct SecondHomeView: View{
         ("Title 4", "Action 4", "Description 4","https://gojek.com/"),
         ("Title 5", "Action 5", "Description 5","https://wa.me/")
     ]
+    @Binding var selection: Int
     
     var body: some View{
-        NavigationView() {
+        NavigationStack {
             ScrollView {
                 VStack(alignment: .leading){
                     HStack{
@@ -64,9 +89,15 @@ struct SecondHomeView: View{
                             .bold()
                         
                         //See More Button
-                        Text("See More")
-                            .font(.caption)
-                            .foregroundColor(Color("teal600"))
+                        Button {
+                            selection = 2
+                            print(selection)
+                        } label: {
+                            Text("See More")
+                                .font(.caption)
+                                .foregroundColor(Color("teal600"))
+                        }
+
                         Spacer()
                     }
                     .padding(.horizontal, 24)
@@ -96,9 +127,14 @@ struct SecondHomeView: View{
                             .bold()
                         
                         //See More Button
-                        Text("See More")
-                            .font(.caption)
-                            .foregroundColor(Color("teal600"))
+                        Button {
+                            selection = 3
+                            print(selection)
+                        } label: {
+                            Text("See More")
+                                .font(.caption)
+                                .foregroundColor(Color("teal600"))
+                        }
                         Spacer()
                     }
                     .padding(.horizontal, 24)
@@ -114,7 +150,7 @@ struct SecondHomeView: View{
                             Text("\(!comp.isEmpty ? comp[0].otherAS ?? "Not Found" : "Not Found")")
                                 .font(.body)
                             
-                            Text("\((comp[0].role=="Children" ? "Parent" : comp[0].role) ?? "Parent") Attachment Style")
+                            Text("\(!comp.isEmpty && comp[0].role=="Children" ? "Parent" : "Children" ?? "Parent") Attachment Style")
                                 .font(.caption)
                                 .foregroundColor(Color("GrayLight"))
                         }
@@ -139,9 +175,14 @@ struct SecondHomeView: View{
                             .bold()
                         
                         //See More Button
-                        Text("See More")
-                            .font(.caption)
-                            .foregroundColor(Color("teal600"))
+                        Button {
+                            selection = 4
+                            print(selection)
+                        } label: {
+                            Text("See More")
+                                .font(.caption)
+                                .foregroundColor(Color("teal600"))
+                        }
                         Spacer()
                     }
                     .padding(.horizontal, 24)
@@ -167,7 +208,7 @@ struct SecondHomeView: View{
     
     struct HomeView_Previews: PreviewProvider {
         static var previews: some View {
-            SecondHomeView()
+            SecondHomeView(selection: Binding.constant(0))
         }
     }
 }
