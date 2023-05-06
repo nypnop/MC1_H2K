@@ -19,9 +19,6 @@ struct CompatibilityResult: View {
     @State var isAnimated : Bool = false
     @FetchRequest(entity: Compatibility.entity(), sortDescriptors: [NSSortDescriptor(key: "date", ascending: false)])
     private var comp: FetchedResults<Compatibility>
-//    var resultRate: Double
-//    @State var styleName : String = "Fearful-Avoidant"
-    @State var imageName : String = "Avatar-FA"
     var body: some View {
         VStack(alignment:.leading){
             HStack{
@@ -33,7 +30,7 @@ struct CompatibilityResult: View {
                 Spacer()
             }
             VStack(alignment:.leading){
-                ComparisonStyle(styleName: !comp.isEmpty ? comp[0].yourAS ?? "Not Found" : "Not Found", otherStyleName: !comp.isEmpty ? comp[0].otherAS ?? "Not Found" : "Not Found", otherimageName: $imageName, imageName: $imageName)
+                ComparisonStyle(styleName: !comp.isEmpty ? comp[0].yourAS ?? "Not Found" : "Not Found", otherStyleName: !comp.isEmpty ? comp[0].otherAS ?? "Not Found" : "Not Found", otherimageName: !comp.isEmpty ? comp[0].image2 ?? "Not Found" : "Not Found", imageName: !comp.isEmpty ? comp[0].image ?? "Not Found" : "Not Found")
             }
             VStack(alignment: .leading){
                 Text("Compatibility Rate")
@@ -41,7 +38,7 @@ struct CompatibilityResult: View {
                     .foregroundColor(Color("GrayLight"))
                 Chart(resultRate){
                     item in
-                    BarMark(x: .value("rate", isAnimated ?  Double(comp[0].rate) : item.resultRateNumber)
+                    BarMark(x: .value("rate", isAnimated && !comp.isEmpty ?  Double(comp[0].rate) : item.resultRateNumber)
                     )
                     .foregroundStyle(Color("teal500"))
                     .annotation(position: .trailing){
@@ -92,10 +89,7 @@ struct CompatibilityResult: View {
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(Color("teal500"), lineWidth:1))
             .padding(.top)
-            .padding(.horizontal,24)
-//            .onAppear() {
-//                print(comp)
-//            }
+            .padding(.horizontal,16)
     }
 }
 

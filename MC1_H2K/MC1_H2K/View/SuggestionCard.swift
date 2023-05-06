@@ -13,6 +13,8 @@ struct SuggestionCard: View {
     @Binding var CardAction : String
     @Binding var CardDescription : String
     @Binding var CardLink : String
+    @State var ErrorMessage :String = ""
+    @State var ShowAlert : Bool = false
     
     var body: some View {
         VStack {
@@ -23,30 +25,50 @@ struct SuggestionCard: View {
                     .padding(.horizontal)
                 
                 Spacer()
-                Button(action: {
-                    let CardURL = URL(string: CardLink)!
-                    UIApplication.shared.open(CardURL)
-                }, label: {
-                    Text(CardAction)
-                        .font(.caption2.bold())
-                        .foregroundColor(Color("teal600"))
-                        .padding()
-                        .background(
-                            Color("teal100")
-                        )
-                        .cornerRadius(50)
-                })
-                .padding(.horizontal)
-            }
+                if CardLink == "ConversationStarter"{
+                    NavigationLink(destination: ConversationStarter()) {
+                        Text(CardAction)
+                            .font(.caption2.bold())
+                            .foregroundColor(Color("teal600"))
+                            .padding()
+                            .background(
+                                Color("teal100")
+                            )
+                            .cornerRadius(50)
+                    }.padding(.horizontal)
+                }else{
+                    Button(action: {
+                        let CardURL = URL(string: CardLink)!
+                        if UIApplication.shared.canOpenURL(CardURL){
+                            UIApplication.shared.open(CardURL)
+                        } else{
+                            ErrorMessage = "Aplikasi belum ada di Handphone anda"
+                            ShowAlert = true
+                        }
+                        
+                    }, label: {
+                        Text(CardAction)
+                            .font(.caption2.bold())
+                            .foregroundColor(Color("teal600"))
+                            .padding()
+                            .background(
+                                Color("teal100")
+                            )
+                            .cornerRadius(50)
+                    }) .alert(isPresented: $ShowAlert) {
+                        Alert(title: Text("Mohon Maaf"), message: Text(ErrorMessage), dismissButton: .default(Text("OK")))
+                    }
+                    .padding(.horizontal)
+                }}
             .padding(.horizontal, 0.5)
             .padding(.bottom,0.5)
             
             HStack {
                 Text(CardDescription)
-                .padding(.horizontal)
-                .foregroundColor(.black)
-                .multilineTextAlignment(.leading)
-            .font(.caption)
+                    .padding(.horizontal)
+                    .foregroundColor(.black)
+                    .multilineTextAlignment(.leading)
+                    .font(.caption)
                 Spacer()
             }
         }

@@ -9,8 +9,8 @@ import SwiftUI
 struct ComparisonStyle: View {
     var styleName: String
     var otherStyleName: String
-    @Binding var otherimageName: String
-    @Binding var imageName: String
+    var otherimageName: String
+    var imageName: String
     @State var styleTitle: String = "Attachment Style"
     var body: some View {
         VStack(alignment:.leading){
@@ -48,6 +48,6 @@ struct ComparisonStyle: View {
 
 struct ComparisonStyle_Previews: PreviewProvider {
     static var previews: some View {
-        ComparisonStyle(styleName: "Avoidant", otherStyleName: "Secure", otherimageName: .constant("Avatar-FA"), imageName: .constant("Avatar-FA"))
+        ComparisonStyle(styleName: "Avoidant", otherStyleName: "Secure", otherimageName: "Avatar-FA", imageName: "Avatar-FA")
     }
 }

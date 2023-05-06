@@ -15,7 +15,7 @@ struct Home: View{
     var body: some View{
         VStack{
             if isDataAvailable{
-                HomeView()
+                HomeView(selection: $selection)
             }
             else{
                 SecondHomeView(selection: $selection)
@@ -23,27 +23,52 @@ struct Home: View{
         }
     }
 }
-
 struct HomeView: View{
+    
+    @Binding var selection: Int
+    
     var body: some View{
         VStack{
-            //App Logo
-            
-            //Dark Mode Button
+
             
             //Illustration Image
+            Image("Avatar-AX")
+                .resizable()
+                .frame(width: 240, height: 240)
+                .padding()
             
             //Text
+            Text("You have not taken the test yet!")
+                .font(.title3.bold())
+                
             
             //Sub-Text
+            Text("Click the button below to take the test")
+                .font(.body)
+                .foregroundColor(Color("GrayLight"))
+                
             
             //Take Test Button
+            Button(action: {}) {
+                NavigationLink(destination: HomeTestPageView(selection: $selection)){
+                    Label("Start the Test", image: "Icon")
+                        .font(.body.bold())
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(
+                            Color("teal500")
+                        )
+                        .cornerRadius(13)
+                }
+                    
+            }
         }
     }
 }
 
 struct SecondHomeView: View{
-    
+    @FetchRequest(entity: Compatibility.entity(), sortDescriptors: [NSSortDescriptor(key: "date", ascending: false)])
+    private var comp: FetchedResults<Compatibility>
     @State var cards = [
         ("Title 1", "Action 1", "Description 1", "people://"),
         ("Title 2", "Action 2", "Description 2","https://wa.me/"),
@@ -79,15 +104,15 @@ struct SecondHomeView: View{
                     
                     //Child Attachment Style
                     HStack(){
-                        Image("Avatar-FA")
+                        Image("\(!comp.isEmpty ? comp[0].image ?? "Not Found" : "Not Found")")
                             .resizable()
                             .frame(width: 32, height: 32)
                         
                         VStack(alignment: .leading){
-                            Text("Fearful Avoidant")
+                            Text("\(!comp.isEmpty ? comp[0].yourAS ?? "Not Found" : "Not Found")")
                                 .font(.body)
                             
-                            Text("Child Attachment Style")
+                            Text("\(!comp.isEmpty ? comp[0].role ?? "Children" : "Children") Attachment Style")
                                 .font(.caption)
                                 .foregroundColor(Color("GrayLight"))
                         }
@@ -117,15 +142,15 @@ struct SecondHomeView: View{
                     
                     //Parent Attachment Style
                     HStack(){
-                        Image("Avatar-DA")
+                        Image("\(!comp.isEmpty ? comp[0].image2 ?? "Not Found" : "Not Found")")
                             .resizable()
                             .frame(width: 32, height: 32)
                         
                         VStack(alignment: .leading){
-                            Text("Dismissive-Avoidant")
+                            Text("\(!comp.isEmpty ? comp[0].otherAS ?? "Not Found" : "Not Found")")
                                 .font(.body)
                             
-                            Text("Parent Attachment Style")
+                            Text("\(!comp.isEmpty && comp[0].role=="Children" ? "Parent" : "Children" ?? "Parent") Attachment Style")
                                 .font(.caption)
                                 .foregroundColor(Color("GrayLight"))
                         }
