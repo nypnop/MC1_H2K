@@ -16,4 +16,3 @@ randomize content in universal and primary content
 
 ## Test page :
 kalau sudah beres harus dismiss page
-
