@@ -10,6 +10,8 @@ reverse di compat
 ## Applied suggestion :
 
 struct content
+    struct primary applied done
+    struct universal applied 
 randomize content in universal and primary content
 
 ## Summary page :
