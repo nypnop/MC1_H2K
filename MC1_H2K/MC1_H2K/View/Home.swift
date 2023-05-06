@@ -15,7 +15,7 @@ struct Home: View{
     var body: some View{
         VStack{
             if isDataAvailable{
-                HomeView()
+                HomeView(selection: $selection)
             }
             else{
                 SecondHomeView(selection: $selection)
@@ -24,6 +24,9 @@ struct Home: View{
     }
 }
 struct HomeView: View{
+    
+    @Binding var selection: Int
+    
     var body: some View{
         VStack{
 
@@ -47,7 +50,7 @@ struct HomeView: View{
             
             //Take Test Button
             Button(action: {}) {
-                NavigationLink(destination: HomeTestPageView()){
+                NavigationLink(destination: HomeTestPageView(selection: $selection)){
                     Label("Start the Test", image: "Icon")
                         .font(.body.bold())
                         .foregroundColor(.white)
