@@ -21,42 +21,42 @@ struct ResultPageView: View {
     }
     var body: some View {
         NavigationView{
-            VStack{
-                Image(!resultData.isEmpty && resultData[0].type == "Secure" ? "Avatar-SE" : !resultData.isEmpty && resultData[0].type == "Anxious" ? "Avatar-AX" : !resultData.isEmpty && resultData[0].type == "Fearful-Avoidant" ? "Avatar-FA" : !resultData.isEmpty && resultData[0].type == "Dismissive Avoidant" ? "Avatar-DA" : "")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 140)
-                    .overlay(alignment: .bottomTrailing){
-                        Button(action: {
-                            
-                        }){
-                            Label("Export to PDF", systemImage: "square.and.arrow.up.fill")
-                        }
-                        .buttonStyle( PdfButtonTemplate(width: 111, height:24) )
-                        .padding(.bottom,15)
-                        .offset(x: 80)
-                    }
-                Text(!resultData.isEmpty ? resultData[0].type ?? "Not Found" : "Not Found")
-                    .font(.body)
-                    .bold()
-                    .padding(.top,10)
-                Text("Attachment Style")
-                    .font(.caption)
-                    .foregroundColor(Color("GrayLight"))
-                //PICKER TAB SEGMENT
-                Picker(
-                    selection:$index,
-                    label: Text("Picker"),
-                    content: {
-                        Text("Description").tag(0)
-                        Text("Graph").tag(1)
-                        Text("History").tag(2)
-                    })
-                .background(Color("teal25"))
-                .pickerStyle(.segmented)
-                .padding(.horizontal)
-                .padding(.top)
-            }
+//            VStack{
+//                Image(!resultData.isEmpty && resultData[0].type == "Secure" ? "Avatar-SE" : !resultData.isEmpty && resultData[0].type == "Anxious" ? "Avatar-AX" : !resultData.isEmpty && resultData[0].type == "Fearful-Avoidant" ? "Avatar-FA" : !resultData.isEmpty && resultData[0].type == "Dismissive Avoidant" ? "Avatar-DA" : "")
+//                    .resizable()
+//                    .scaledToFit()
+//                    .frame(width: 140)
+//                    .overlay(alignment: .bottomTrailing){
+//                        Button(action: {
+//
+//                        }){
+//                            Label("Export to PDF", systemImage: "square.and.arrow.up.fill")
+//                        }
+//                        .buttonStyle( PdfButtonTemplate(width: 111, height:24) )
+//                        .padding(.bottom,15)
+//                        .offset(x: 80)
+//                    }
+//                Text(!resultData.isEmpty ? resultData[0].type ?? "Not Found" : "Not Found")
+//                    .font(.body)
+//                    .bold()
+//                    .padding(.top,10)
+//                Text("Attachment Style")
+//                    .font(.caption)
+//                    .foregroundColor(Color("GrayLight"))
+//                //PICKER TAB SEGMENT
+//                Picker(
+//                    selection:$index,
+//                    label: Text("Picker"),
+//                    content: {
+//                        Text("Description").tag(0)
+//                        Text("Graph").tag(1)
+//                        Text("History").tag(2)
+//                    })
+//                .background(Color("teal25"))
+//                .pickerStyle(.segmented)
+//                .padding(.horizontal)
+//                .padding(.top)
+//            }
             ScrollView{
                 VStack{
                     VStack{
