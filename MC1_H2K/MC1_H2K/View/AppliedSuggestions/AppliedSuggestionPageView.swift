@@ -37,7 +37,6 @@ struct AppliedSuggestionPageView: View {
                     }
                 }
                     .navigationBarTitle("Applied Suggestion")
-                    .edgesIgnoringSafeArea(.bottom)
             }
         }
     }

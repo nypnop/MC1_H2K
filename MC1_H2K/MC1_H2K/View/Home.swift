@@ -10,20 +10,23 @@ import Charts
 
 struct Home: View{
     
-    @State var isDataAvailable : Bool = true
-    
+    @State var isDataAvailable : Bool = false
+    @Binding var selection: Int
     var body: some View{
         VStack{
             if isDataAvailable{
-                HomeView()
+                HomeView(selection: $selection)
             }
             else{
-                SecondHomeView()
+                SecondHomeView(selection: $selection)
             }
         }
     }
 }
 struct HomeView: View{
+    
+    @Binding var selection: Int
+    
     var body: some View{
         VStack{
 
@@ -47,7 +50,7 @@ struct HomeView: View{
             
             //Take Test Button
             Button(action: {}) {
-                NavigationLink(destination: HomeTestPageView()){
+                NavigationLink(destination: HomeTestPageView(selection: $selection)){
                     Label("Start the Test", image: "Icon")
                         .font(.body.bold())
                         .foregroundColor(.white)
@@ -73,9 +76,10 @@ struct SecondHomeView: View{
         ("Title 4", "Action 4", "Description 4","https://gojek.com/"),
         ("Title 5", "Action 5", "Description 5","https://wa.me/")
     ]
+    @Binding var selection: Int
     
     var body: some View{
-        NavigationView() {
+        NavigationStack {
             ScrollView {
                 VStack(alignment: .leading){
                     HStack{
@@ -85,9 +89,15 @@ struct SecondHomeView: View{
                             .bold()
                         
                         //See More Button
-                        Text("See More")
-                            .font(.caption)
-                            .foregroundColor(Color("teal600"))
+                        Button {
+                            selection = 2
+                            print(selection)
+                        } label: {
+                            Text("See More")
+                                .font(.caption)
+                                .foregroundColor(Color("teal600"))
+                        }
+
                         Spacer()
                     }
                     .padding(.horizontal, 24)
@@ -117,9 +127,14 @@ struct SecondHomeView: View{
                             .bold()
                         
                         //See More Button
-                        Text("See More")
-                            .font(.caption)
-                            .foregroundColor(Color("teal600"))
+                        Button {
+                            selection = 3
+                            print(selection)
+                        } label: {
+                            Text("See More")
+                                .font(.caption)
+                                .foregroundColor(Color("teal600"))
+                        }
                         Spacer()
                     }
                     .padding(.horizontal, 24)
@@ -160,9 +175,14 @@ struct SecondHomeView: View{
                             .bold()
                         
                         //See More Button
-                        Text("See More")
-                            .font(.caption)
-                            .foregroundColor(Color("teal600"))
+                        Button {
+                            selection = 4
+                            print(selection)
+                        } label: {
+                            Text("See More")
+                                .font(.caption)
+                                .foregroundColor(Color("teal600"))
+                        }
                         Spacer()
                     }
                     .padding(.horizontal, 24)
@@ -188,7 +208,7 @@ struct SecondHomeView: View{
     
     struct HomeView_Previews: PreviewProvider {
         static var previews: some View {
-            Home()
+            SecondHomeView(selection: Binding.constant(0))
         }
     }
 }

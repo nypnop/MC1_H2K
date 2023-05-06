@@ -14,3 +14,5 @@ randomize content in universal and primary content
 
 ## Summary page :
 
+## Test page :
+kalau sudah beres harus dismiss page
