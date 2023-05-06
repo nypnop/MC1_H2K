@@ -13,7 +13,8 @@ struct ResultHistory: View {
     var body: some View {
         VStack(alignment:.leading){
             ForEach(resultData, id: \.self) {history in
-                CardHistory(type: history.type ?? "Not Found", date: history.date ?? Date(), dateString: "")
+                CardHistory(type: !resultData.isEmpty ? history.type! : "Not Found" , date: !resultData.isEmpty ? history.date! : Date(), dateString: "")
+//                CardHistory(type: history.type ?? "Not Found", date: history.date ?? Date(), dateString: "")
             }.padding(.bottom,-8)
         }.frame(maxWidth: .infinity)
             .padding()

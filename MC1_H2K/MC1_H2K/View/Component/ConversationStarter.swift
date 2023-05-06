@@ -39,10 +39,16 @@ struct ConversationStarter: View {
                     
                     Text(card.subMessage)
                         .font(.subheadline)
-                }.padding(.top,8)
-                    .navigationBarTitle("Conversation Starter")
-                    .edgesIgnoringSafeArea(.bottom)
+                }
+                .padding(.top,8)
+                .listRowBackground(Color("teal25"))
+                .navigationBarTitle("Conversation Starter")
+                .edgesIgnoringSafeArea(.bottom)
             }
+            .scrollContentBackground(.hidden)
+            
+//            .background(Color("teal25"))
+            
           
     }
 }

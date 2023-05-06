@@ -34,31 +34,32 @@ struct CompatibilityInput: View {
                                 ForEach(roleOptions, id: \.self) {
                                     Text($0)
                                 }
-                            }.font(.caption)
+                            }.font(.subheadline)
                         }
                         Section{
                             Picker("Choose your style", selection: $selectedStyleOption) {
                                 ForEach(styleOption, id: \.self) {
                                     Text($0)
                                 }
-                            }.font(.caption)
+                            }.font(.subheadline)
                             Picker("Choose the other style", selection: $selectedOtherStyleOption) {
                                 ForEach(styleOption, id: \.self) {
                                     Text($0)
                                 }
-                            }.font(.caption)
+                            }.font(.subheadline)
                         }
                         
                     }
                     .scrollContentBackground(.hidden)
-                    .padding(.top,-30)
+//                    .padding(.top,-30)
                     .padding(.horizontal, -5)
                     .background(Color("teal25"))
                     
-            }.frame(maxWidth: .infinity, maxHeight: 180)
+                    
+            }.frame(maxWidth: .infinity, maxHeight: 220)
             VStack{
                 Button(action: {
-                    viewModel.addCompatibility(yourAS: selectedStyleOption, otherAS: selectedOtherStyleOption, role: selectedRoleOption, comment: "You Good ?")
+                    viewModel.addCompatibility(yourAS: selectedStyleOption, otherAS: selectedOtherStyleOption, role: selectedRoleOption, comment: "You Good ?", image: selectedStyleOption, image2: selectedOtherStyleOption)
                     print(viewModel.compatibilityArray)
                 }, label: {
                     Text("Submit")
@@ -81,7 +82,7 @@ struct CompatibilityInput: View {
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(Color("teal500"), lineWidth:1))
             .padding(.top)
-            .padding(.horizontal,24)
+            .padding(.horizontal,16)
     }
     
     
