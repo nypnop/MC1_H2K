@@ -10,11 +10,6 @@ struct CSData: Identifiable {
     let message: String
     let subMessage: String
 }
-let CSCards = [
-    CSData(message: "chat wa 1", subMessage: "deskripsi chat wa 1"),
-    CSData(message: "chat wa 2", subMessage: "deskripsi chat wa 2"),
-    CSData(message: "chat wa 3", subMessage: "deskripsi chat wa 3"),
-]
 
 struct ConversationStarter: View {
     @StateObject var viewModel = AppliedViewModel()
@@ -22,7 +17,7 @@ struct ConversationStarter: View {
     private var comp: FetchedResults<Compatibility>
     private let pastboard = UIPasteboard.general
     var body: some View {
-        List(CSCards) { card in
+        List(viewModel.showCSCards(aS: !comp.isEmpty ? comp[0].yourAS! : "", role: !comp.isEmpty ? comp[0].role! : "")) { card in
                 VStack(alignment: .leading) {
                     HStack{
                         Text(card.message)
