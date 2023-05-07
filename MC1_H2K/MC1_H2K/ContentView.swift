@@ -24,7 +24,7 @@ struct ContentView: View {
                         Text("Style Test")
                     }
                     .tag(1)
-                ResultPageView()
+                ResultPageView(selection: $selectedTab)
                     .tabItem{
                         Image(systemName: "person.circle")
                         Text("Test Result")
@@ -36,7 +36,7 @@ struct ContentView: View {
                         Text("Compatibility")
                     }
                     .tag(3)
-                AppliedSuggestionPageView()
+                AppliedSuggestionPageView(selection: $selectedTab)
                     .tabItem{
                         Image(systemName: "hand.thumbsup.circle")
                         Text("Suggestion")

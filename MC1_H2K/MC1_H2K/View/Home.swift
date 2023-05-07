@@ -9,17 +9,24 @@ import SwiftUI
 import Charts
 
 struct Home: View{
-    
+    @FetchRequest(entity: ResultData.entity(), sortDescriptors: [NSSortDescriptor(key: "date", ascending: false)])
+    private var resultData: FetchedResults<ResultData>
+    @FetchRequest(entity: Compatibility.entity(), sortDescriptors: [NSSortDescriptor(key: "date", ascending: false)])
+    private var comp: FetchedResults<Compatibility>
     @State var isDataAvailable : Bool = false
     @Binding var selection: Int
     var body: some View{
         VStack{
-            if isDataAvailable{
-                HomeView(selection: $selection)
-            }
-            else{
+            if !resultData.isEmpty && !comp.isEmpty{
                 SecondHomeView(selection: $selection)
             }
+            else{
+                HomeView(selection: $selection)
+            }
+        }
+        .onAppear() {
+            print(resultData.isEmpty)
+            print(comp.isEmpty)
         }
     }
 }

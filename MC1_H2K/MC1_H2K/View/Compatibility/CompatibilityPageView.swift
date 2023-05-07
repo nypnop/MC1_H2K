@@ -9,6 +9,10 @@ import SwiftUI
 struct CompatibilityPageView: View {
     @State private var compatibilitySegment = 0
     @Binding var selection: Int
+    @FetchRequest(entity: ResultData.entity(), sortDescriptors: [NSSortDescriptor(key: "date", ascending: false)])
+    private var resultData: FetchedResults<ResultData>
+    @FetchRequest(entity: Compatibility.entity(), sortDescriptors: [NSSortDescriptor(key: "date", ascending: false)])
+    private var comp: FetchedResults<Compatibility>
 //    public init() {
 //        UISegmentedControl.appearance().selectedSegmentTintColor = UIColor.white
 //        let attributes: [NSAttributedString.Key:Any] = [
@@ -18,42 +22,46 @@ struct CompatibilityPageView: View {
 //    }
     var body: some View {
         NavigationView {
-            ScrollView{
-                VStack{
-                    VStack(alignment: .leading){
-        
-                        HStack{
-                            Text("See your relationship compatibility with your parent/child!")
-                                .font(.caption)
-                                .foregroundColor(Color("GrayLight"))
-                            Spacer()
+            if !resultData.isEmpty && !comp.isEmpty {
+                ScrollView{
+                    VStack{
+                        VStack(alignment: .leading){
+            
+                            HStack{
+                                Text("See your relationship compatibility with your parent/child!")
+                                    .font(.caption)
+                                    .foregroundColor(Color("GrayLight"))
+                                Spacer()
+                            }
+                            .padding(.horizontal,16)
+                            //PICKER TAB SEGMENT
+                            Picker(
+                                selection:$compatibilitySegment,
+                                label: Text("Picker"),
+                                content: {
+                                    Text("Input").tag(0)
+                                    Text("Result").tag(1)
+                                    Text("History").tag(2)
+                                })
+                            .background(Color("teal25"))
+                            .pickerStyle(.segmented)
+                            .padding(.top,12)
+                            .padding(.horizontal,16)
                         }
-                        .padding(.horizontal,16)
-                        //PICKER TAB SEGMENT
-                        Picker(
-                            selection:$compatibilitySegment,
-                            label: Text("Picker"),
-                            content: {
-                                Text("Input").tag(0)
-                                Text("Result").tag(1)
-                                Text("History").tag(2)
-                            })
-                        .background(Color("teal25"))
-                        .pickerStyle(.segmented)
-                        .padding(.top,12)
-                        .padding(.horizontal,16)
+                        
+                        if compatibilitySegment == 0{
+                            CompatibilityInput(selection: $compatibilitySegment)
+                        }
+                        else if compatibilitySegment == 1{
+                            CompatibilityResult(selection: $selection)
+                        }else{
+                            CompatibilityHistory()
+                        }
                     }
-                    
-                    if compatibilitySegment == 0{
-                        CompatibilityInput(selection: $compatibilitySegment)
-                    }
-                    else if compatibilitySegment == 1{
-                        CompatibilityResult(selection: $selection)
-                    }else{
-                        CompatibilityHistory()
-                    }
-                }
-            }.navigationBarTitle("Compatibility")
+                }.navigationBarTitle("Compatibility")
+            } else {
+                HomeView(selection: $selection)
+            }
         }
     }
 }
