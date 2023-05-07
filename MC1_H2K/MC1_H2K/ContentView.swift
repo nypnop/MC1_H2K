@@ -30,7 +30,7 @@ struct ContentView: View {
                         Text("Test Result")
                     }
                     .tag(2)
-                CompatibilityPageView()
+                CompatibilityPageView(selection: $selectedTab)
                     .tabItem{
                         Image(systemName: "heart.circle")
                         Text("Compatibility")

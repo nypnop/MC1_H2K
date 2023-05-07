@@ -17,6 +17,7 @@ var resultRate: [resultCompatibilityRate] = [
 ]
 struct CompatibilityResult: View {
     @State var isAnimated : Bool = false
+    @Binding var selection: Int
     @FetchRequest(entity: Compatibility.entity(), sortDescriptors: [NSSortDescriptor(key: "date", ascending: false)])
     private var comp: FetchedResults<Compatibility>
     var body: some View {
@@ -67,7 +68,7 @@ struct CompatibilityResult: View {
                 }.padding(.top,8)
                 VStack{
                     Button(action: {
-    //                    print(comp)
+                        selection = 4
                     }, label: {
                         Text("Improve it Now")
                             .font(.body)
@@ -97,6 +98,6 @@ struct CompatibilityResult: View {
 
 struct CompatibilityResult_Previews: PreviewProvider {
     static var previews: some View {
-        CompatibilityResult()
+        CompatibilityResult(selection: .constant(4))
     }
 }

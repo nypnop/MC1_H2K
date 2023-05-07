@@ -18,8 +18,8 @@ struct BigButtonTemplate: ButtonStyle {
             .bold()
             .frame(width: width, height: height)
             .padding([.top,.bottom])
-            .foregroundColor(isAll ? .white : .gray)
-            .background(RoundedRectangle(cornerRadius:20).fill(Color(UIColor(named: isAll ? "teal500" : "teal900")!)))
+            .foregroundColor(isAll ? .white : Color((UIColor(named: "teal50")!)))
+            .background(RoundedRectangle(cornerRadius:20).fill(Color(UIColor(named: isAll ? "teal500" : "teal100")!)))
             .padding(.top,70)
             .scaleEffect(configuration.isPressed && isAll ? 0.8 : 1.0)
     }

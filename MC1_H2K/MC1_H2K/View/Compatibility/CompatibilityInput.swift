@@ -16,6 +16,9 @@ struct CompatibilityInput: View {
     @State private var selectedStyleOption = "Secure"
     @State private var selectedOtherStyleOption = "Secure"
     @State private var selectedOption = 0
+    @Binding var selection: Int
+
+    
     var body: some View {
         VStack{
             HStack{
@@ -59,7 +62,7 @@ struct CompatibilityInput: View {
             VStack{
                 Button(action: {
                     viewModel.addCompatibility(yourAS: selectedStyleOption, otherAS: selectedOtherStyleOption, role: selectedRoleOption, comment: "You Good ?", image: selectedStyleOption, image2: selectedOtherStyleOption)
-                    print(viewModel.compatibilityArray)
+                    selection = 1
                 }, label: {
                     Text("Submit")
                         .font(.body)
@@ -89,6 +92,6 @@ struct CompatibilityInput: View {
 
 struct CompatibilityInput_Previews: PreviewProvider {
     static var previews: some View {
-        CompatibilityInput()
+        CompatibilityInput(selection: .constant(2))
     }
 }
