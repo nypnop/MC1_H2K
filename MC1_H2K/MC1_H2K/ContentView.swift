@@ -8,36 +8,44 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var selectedTab: Int = 0
     var body: some View {
-        TabView{
-            Home()
-                .tabItem{
-                    Image(systemName: "house.circle")
-                    Text("Home")
-                }
-            HomeTestPageView()
-                .tabItem{
-                    Image(systemName: "questionmark.circle")
-                    Text("Style Test")
-                }
-            ResultPageView()
-                .tabItem{
-                    Image(systemName: "person.circle")
-                    Text("Test Result")
-                }
-            CompatibilityPageView()
-                .tabItem{
-                    Image(systemName: "heart.circle")
-                    Text("Compatibility")
-                }
-            AppliedSuggestionPageView()
-                .tabItem{
-                    Image(systemName: "hand.thumbsup.circle")
-                    Text("Suggestion")
-                }
+        ZStack {
+            TabView(selection: $selectedTab){
+                Home(selection: $selectedTab)
+                    .tabItem{
+                        Image(systemName: "house.circle")
+                        Text("Home")
+                    }
+                    .tag(0)
+                HomeTestPageView(selection: $selectedTab)
+                    .tabItem{
+                        Image(systemName: "questionmark.circle")
+                        Text("Style Test")
+                    }
+                    .tag(1)
+                ResultPageView(selection: $selectedTab)
+                    .tabItem{
+                        Image(systemName: "person.circle")
+                        Text("Test Result")
+                    }
+                    .tag(2)
+                CompatibilityPageView(selection: $selectedTab)
+                    .tabItem{
+                        Image(systemName: "heart.circle")
+                        Text("Compatibility")
+                    }
+                    .tag(3)
+                AppliedSuggestionPageView(selection: $selectedTab)
+                    .tabItem{
+                        Image(systemName: "hand.thumbsup.circle")
+                        Text("Suggestion")
+                    }
+                    .tag(4)
+            }
+            .accentColor(Color("teal500"))
+        .background(Color.white)
         }
-        .accentColor(Color("teal500"))
-
     }
 }
 

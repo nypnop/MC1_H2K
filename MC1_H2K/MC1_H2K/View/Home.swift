@@ -9,46 +9,53 @@ import SwiftUI
 import Charts
 
 struct Home: View{
-    
+    @FetchRequest(entity: ResultData.entity(), sortDescriptors: [NSSortDescriptor(key: "date", ascending: false)])
+    private var resultData: FetchedResults<ResultData>
+    @FetchRequest(entity: Compatibility.entity(), sortDescriptors: [NSSortDescriptor(key: "date", ascending: false)])
+    private var comp: FetchedResults<Compatibility>
     @State var isDataAvailable : Bool = false
-    
+    @Binding var selection: Int
     var body: some View{
         VStack{
-            if isDataAvailable{
-                HomeView()
+            if !resultData.isEmpty{
+                SecondHomeView(selection: $selection)
             }
             else{
-                SecondHomeView()
+                HomeView(selection: $selection)
             }
+        }
+        .onAppear() {
+            print(resultData.isEmpty)
+            print(comp.isEmpty)
         }
     }
 }
-
 struct HomeView: View{
+    
+    @Binding var selection: Int
+    
     var body: some View{
         VStack{
 
-            
-            //Illustration Image
-            Image("Avatar-AX")
-                .resizable()
-                .frame(width: 240, height: 240)
-                .padding()
-            
-            //Text
-            Text("You have not taken the test yet!")
-                .font(.title3.bold())
-                
-            
-            //Sub-Text
-            Text("Click the button below to take the test")
-                .font(.body)
-                .foregroundColor(Color("GrayLight"))
-                
-            
-            //Take Test Button
-            Button(action: {}) {
-                NavigationLink(destination: HomeTestPageView()){
+            if(selection==4){
+                //Illustration Image
+                Image("Avatar-AX")
+                    .resizable()
+                    .frame(width: 240, height: 240)
+                    .padding()
+                //Text
+                Text("You have not taken the compatibility test yet!")
+                    .font(.title3.bold())
+                    .multilineTextAlignment(.center)
+                //Sub-Text
+                Text("Click the button below to take the compatibility test")
+                    .font(.body)
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(Color("GrayLight"))
+                //Take Test Button
+                Button(action: {
+                    selection = 3
+                }) {
                     Label("Start the Test", image: "Icon")
                         .font(.body.bold())
                         .foregroundColor(.white)
@@ -57,25 +64,49 @@ struct HomeView: View{
                             Color("teal500")
                         )
                         .cornerRadius(13)
+                        
                 }
-                    
+            }else{
+                //Illustration Image
+                Image("Avatar-AX")
+                    .resizable()
+                    .frame(width: 240, height: 240)
+                    .padding()
+                //Text
+                Text("You have not taken the test yet!")
+                    .font(.title3.bold())
+                //Sub-Text
+                Text("Click the button below to take the test")
+                    .font(.body)
+                    .foregroundColor(Color("GrayLight"))
+                //Take Test Button
+                Button(action: {
+                    selection = 1
+                }) {
+                    Label("Start the Test", image: "Icon")
+                        .font(.body.bold())
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(
+                            Color("teal500")
+                        )
+                        .cornerRadius(13)
+                        
+                }
             }
+           
         }
     }
 }
 
 struct SecondHomeView: View{
-    
-    @State var cards = [
-        ("Title 1", "Action 1", "Description 1", "ConversationStarter"),
-        ("Title 2", "Action 2", "Description 2","whatsapp://"),
-        ("Title 3", "Action 3", "Description 3","grab://"),
-        ("Title 4", "Action 4", "Description 4","gojek://"),
-        
-    ]
+    @FetchRequest(entity: Compatibility.entity(), sortDescriptors: [NSSortDescriptor(key: "date", ascending: false)])
+    private var comp: FetchedResults<Compatibility>
+    @StateObject var viewModel = AppliedViewModel()
+    @Binding var selection: Int
     
     var body: some View{
-        NavigationView() {
+        NavigationStack {
             ScrollView {
                 VStack(alignment: .leading){
                     HStack{
@@ -85,24 +116,30 @@ struct SecondHomeView: View{
                             .bold()
                         
                         //See More Button
-                        Text("See More")
-                            .font(.caption)
-                            .foregroundColor(Color("teal600"))
+                        Button {
+                            selection = 2
+                            print(selection)
+                        } label: {
+                            Text("See More")
+                                .font(.caption)
+                                .foregroundColor(Color("teal600"))
+                        }
+
                         Spacer()
                     }
                     .padding(.horizontal, 24)
                     
                     //Child Attachment Style
                     HStack(){
-                        Image("Avatar-FA")
+                        Image("\(!comp.isEmpty ? comp[0].image ?? "Not Found" : "Not Found")")
                             .resizable()
                             .frame(width: 32, height: 32)
                         
                         VStack(alignment: .leading){
-                            Text("Fearful Avoidant")
+                            Text("\(!comp.isEmpty ? comp[0].yourAS ?? "Not Found" : "Not Found")")
                                 .font(.body)
                             
-                            Text("Child Attachment Style")
+                            Text("\(!comp.isEmpty ? comp[0].role ?? "Children" : "Children") Attachment Style")
                                 .font(.caption)
                                 .foregroundColor(Color("GrayLight"))
                         }
@@ -117,9 +154,14 @@ struct SecondHomeView: View{
                             .bold()
                         
                         //See More Button
-                        Text("See More")
-                            .font(.caption)
-                            .foregroundColor(Color("teal600"))
+                        Button {
+                            selection = 3
+                            print(selection)
+                        } label: {
+                            Text("See More")
+                                .font(.caption)
+                                .foregroundColor(Color("teal600"))
+                        }
                         Spacer()
                     }
                     .padding(.horizontal, 24)
@@ -127,15 +169,15 @@ struct SecondHomeView: View{
                     
                     //Parent Attachment Style
                     HStack(){
-                        Image("Avatar-DA")
+                        Image("\(!comp.isEmpty ? comp[0].image2 ?? "Not Found" : "Not Found")")
                             .resizable()
                             .frame(width: 32, height: 32)
                         
                         VStack(alignment: .leading){
-                            Text("Dismissive-Avoidant")
+                            Text("\(!comp.isEmpty ? comp[0].otherAS ?? "Not Found" : "Not Found")")
                                 .font(.body)
                             
-                            Text("Parent Attachment Style")
+                            Text("\(!comp.isEmpty && comp[0].role=="Children" ? "Parent" : "Children" ) Attachment Style")
                                 .font(.caption)
                                 .foregroundColor(Color("GrayLight"))
                         }
@@ -160,17 +202,22 @@ struct SecondHomeView: View{
                             .bold()
                         
                         //See More Button
-                        Text("See More")
-                            .font(.caption)
-                            .foregroundColor(Color("teal600"))
+                        Button {
+                            selection = 4
+                            print(selection)
+                        } label: {
+                            Text("See More")
+                                .font(.caption)
+                                .foregroundColor(Color("teal600"))
+                        }
                         Spacer()
                     }
                     .padding(.horizontal, 24)
                     
                     //Suggestion Box
                         VStack {
-                            ForEach(cards.indices, id: \.self) { index in
-                                SuggestionCard(CardTitle: $cards[index].0, CardAction: $cards[index].1, CardDescription: $cards[index].2, CardLink: $cards[index].3)
+                            ForEach(viewModel.randomSuggestion(aS: !comp.isEmpty ? comp[0].yourAS ?? "" : "" ,role: !comp.isEmpty ? comp[0].role ?? "" : "").indices, id: \.self) { index in
+                                SuggestionCard(CardTitle: viewModel.randomSuggestion(aS: !comp.isEmpty ? comp[0].yourAS ?? "" : "" ,role: "Children")[index].0, CardAction: viewModel.randomSuggestion(aS: !comp.isEmpty ? comp[0].yourAS ?? "" : "" ,role: "Children")[index].1, CardDescription: viewModel.randomSuggestion(aS: !comp.isEmpty ? comp[0].yourAS ?? "" : "" ,role: "Children")[index].2, CardLink: viewModel.randomSuggestion(aS: !comp.isEmpty ? comp[0].yourAS ?? "" : "" ,role: "Children")[index].3)
                                 
                             }
                     }
@@ -184,7 +231,7 @@ struct SecondHomeView: View{
     
     struct HomeView_Previews: PreviewProvider {
         static var previews: some View {
-            HomeView()
+            SecondHomeView(selection: Binding.constant(0))
         }
     }
 }

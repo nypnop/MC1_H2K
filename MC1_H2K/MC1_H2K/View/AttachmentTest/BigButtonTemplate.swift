@@ -10,6 +10,7 @@ import SwiftUI
 struct BigButtonTemplate: ButtonStyle {
     var width:CGFloat
     var height:CGFloat
+    var isAll: Bool
     
     //2. Configuration parameter basically the button it self in this example
     func makeBody(configuration: Configuration) -> some View {
@@ -17,10 +18,10 @@ struct BigButtonTemplate: ButtonStyle {
             .bold()
             .frame(width: width, height: height)
             .padding([.top,.bottom])
-            .foregroundColor(.white)
-            .background(RoundedRectangle(cornerRadius:20).fill(Color(UIColor(named: "teal500")!)))
+            .foregroundColor(isAll ? .white : Color((UIColor(named: "teal50")!)))
+            .background(RoundedRectangle(cornerRadius:20).fill(Color(UIColor(named: isAll ? "teal500" : "teal100")!)))
             .padding(.top,70)
-            .scaleEffect(configuration.isPressed ? 0.8 : 1.0)
+            .scaleEffect(configuration.isPressed && isAll ? 0.8 : 1.0)
     }
     
 }

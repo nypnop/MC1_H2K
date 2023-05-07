@@ -11,8 +11,9 @@ import SwiftUI
 
 struct HomeTestPageView: View {
     @State var placeholder = false
+    @Binding var selection: Int
     var body: some View {
-        NavigationView{
+        NavigationStack{
             VStack {
                 Text("Attachment Style Test")
                     .font(.title)
@@ -125,12 +126,11 @@ struct HomeTestPageView: View {
                             .stroke(Color(UIColor(named: "teal500")!), lineWidth:1))
                 }
                 Button(action: {}) {
-                    NavigationLink(destination: TestPageView()){
+                    NavigationLink(destination: TestPageView(selection: $selection)){
                         Label("Start the Test", image: "Icon")
                     }
-                        
                 }
-                .buttonStyle( BigButtonTemplate(width: 342, height:25) )
+                .buttonStyle( BigButtonTemplate(width: 342, height:25, isAll: true) )
             }
             .padding()
         }
@@ -139,6 +139,6 @@ struct HomeTestPageView: View {
 
 struct HTPView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeTestPageView()
+        HomeTestPageView(selection: Binding.constant(0))
     }
 }

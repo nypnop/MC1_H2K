@@ -9,10 +9,10 @@ import SwiftUI
 
 struct SuggestionCard: View {
     
-    @Binding var CardTitle : String
-    @Binding var CardAction : String
-    @Binding var CardDescription : String
-    @Binding var CardLink : String
+    var CardTitle : String
+    var CardAction : String
+    var CardDescription : String
+    var CardLink : String
     @State var ErrorMessage :String = ""
     @State var ShowAlert : Bool = false
     
@@ -66,6 +66,7 @@ struct SuggestionCard: View {
             HStack {
                 Text(CardDescription)
                     .padding(.horizontal)
+                    .foregroundColor(.black)
                     .multilineTextAlignment(.leading)
                     .font(.caption)
                 Spacer()
@@ -83,7 +84,7 @@ struct SuggestionCard: View {
     
     struct ResultGraph_Previews: PreviewProvider {
         static var previews: some View {
-            SuggestionCard(CardTitle: .constant("Instructions"), CardAction: .constant("Hubungi Sekarang"), CardDescription: .constant("Lorem ipsum dolor sit amet consectetur. Risus lorem cursus mollis lectus id. Sed curabitur nibh purus semper nisi pellentesque pulvinar. Risus mattis morbi at sed odio pharetra. Condimentum consequat eget bibendum nam nec dolor a tellus venenatis. Vitae sodales commodo sodales etiam nascetur morbi."), CardLink: .constant("contacts://"))
+            SuggestionCard(CardTitle: "Instructions", CardAction: "Hubungi Sekarang", CardDescription: "Lorem ipsum dolor sit amet consectetur. Risus lorem cursus mollis lectus id. Sed curabitur nibh purus semper nisi pellentesque pulvinar. Risus mattis morbi at sed odio pharetra. Condimentum consequat eget bibendum nam nec dolor a tellus venenatis. Vitae sodales commodo sodales etiam nascetur morbi.", CardLink: "contacts://")
                 .previewLayout(PreviewLayout.sizeThatFits)
                 .previewDisplayName("Graph")
         }
