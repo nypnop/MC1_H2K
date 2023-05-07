@@ -17,7 +17,7 @@ struct ConversationStarter: View {
     private var comp: FetchedResults<Compatibility>
     private let pastboard = UIPasteboard.general
     var body: some View {
-        List(viewModel.showCSCards(aS: !comp.isEmpty ? comp[0].yourAS! : "", role: !comp.isEmpty ? comp[0].role! : "")) { card in
+        List(viewModel.showCSCards(aS: !comp.isEmpty ? comp[0].yourAS! : "Anxious", role: !comp.isEmpty ? comp[0].role! : "Children")) { card in
                 VStack(alignment: .leading) {
                     HStack{
                         Text(card.message)

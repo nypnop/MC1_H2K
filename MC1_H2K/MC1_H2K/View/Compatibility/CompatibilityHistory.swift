@@ -13,7 +13,7 @@ struct CompatibilityHistory: View {
     var body: some View {
         VStack(alignment:.leading){
             ForEach(comp, id: \.self) {comps in
-                CardHistoryCompatibility(styleName: comps.yourAS ?? "Not Found", otherStyle: comps.otherAS ?? "Not Found", date: comps.date ?? Date.now, imageName: comps.image ?? "Not Found", otherImage: comps.image2 ?? "Not Found")
+                CardHistoryCompatibility(styleName: !comp.isEmpty ? comps.yourAS! : "Not Found" , otherStyle: !comp.isEmpty ? comps.otherAS! : "Not Found" , date:!comp.isEmpty ? comps.date! : Date.now , imageName: !comp.isEmpty ? comps.image! : "Avatar-AX" , otherImage: !comp.isEmpty ? comps.image2! : "Avatar-AX" )
             }.padding(.bottom,-8)
         }.frame(maxWidth: .infinity)
             .padding()
