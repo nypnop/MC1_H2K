@@ -27,17 +27,39 @@ struct Home: View{
 struct HomeView: View{
     var body: some View{
         VStack{
-            //App Logo
-            
-            //Dark Mode Button
+
             
             //Illustration Image
+            Image("Avatar-AX")
+                .resizable()
+                .frame(width: 240, height: 240)
+                .padding()
             
             //Text
+            Text("You have not taken the test yet!")
+                .font(.title3.bold())
+                
             
             //Sub-Text
+            Text("Click the button below to take the test")
+                .font(.body)
+                .foregroundColor(Color("GrayLight"))
+                
             
             //Take Test Button
+            Button(action: {}) {
+                NavigationLink(destination: HomeTestPageView()){
+                    Label("Start the Test", image: "Icon")
+                        .font(.body.bold())
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(
+                            Color("teal500")
+                        )
+                        .cornerRadius(13)
+                }
+                    
+            }
         }
     }
 }
@@ -162,7 +184,7 @@ struct SecondHomeView: View{
     
     struct HomeView_Previews: PreviewProvider {
         static var previews: some View {
-            SecondHomeView()
+            HomeView()
         }
     }
 }
