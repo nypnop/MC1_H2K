@@ -17,7 +17,7 @@ struct Home: View{
     @Binding var selection: Int
     var body: some View{
         VStack{
-            if !resultData.isEmpty && !comp.isEmpty{
+            if !resultData.isEmpty{
                 SecondHomeView(selection: $selection)
             }
             else{
@@ -56,17 +56,19 @@ struct HomeView: View{
                 
             
             //Take Test Button
-            Button(action: {}) {
-                NavigationLink(destination: HomeTestPageView(selection: $selection)){
-                    Label("Start the Test", image: "Icon")
-                        .font(.body.bold())
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(
-                            Color("teal500")
-                        )
-                        .cornerRadius(13)
-                }
+            Button(action: {
+                selection = 1
+            }) {
+                Label("Start the Test", image: "Icon")
+                    .font(.body.bold())
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(
+                        Color("teal500")
+                    )
+                    .cornerRadius(13)
+//                NavigationLink(destination: HomeTestPageView(selection: $selection)){
+//                }
                     
             }
         }

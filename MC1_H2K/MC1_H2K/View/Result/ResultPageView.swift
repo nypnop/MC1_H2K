@@ -24,7 +24,7 @@ struct ResultPageView: View {
 //    }
     var body: some View {
         NavigationView{
-            if !resultData.isEmpty && !comp.isEmpty{
+            if !resultData.isEmpty{
                 ScrollView{
                     VStack{
                         VStack{
