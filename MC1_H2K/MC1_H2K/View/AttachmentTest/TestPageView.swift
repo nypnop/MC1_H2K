@@ -93,14 +93,13 @@ struct TestPageView: View {
                                     }
                                 }
                                 .padding(.top,140)
-//                                NavigationLink(destination: ResultPageView()){
                                     Button(action: {
                                         selection = 2
+                                        presentationMode.wrappedValue.dismiss()
                                     }) {
                                             Label("Go To Result", image: "Icon")
                                         }
                                     .buttonStyle( BigButtonTemplate(width: 300, height:25, isAll: true) )
-//                                }
                             }
                             .navigationBarBackButtonHidden(true)
                         }
