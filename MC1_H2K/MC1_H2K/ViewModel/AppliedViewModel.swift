@@ -48,7 +48,13 @@ class AppliedViewModel: ObservableObject {
     
     func randomSuggestion(aS:String, role:String) -> [(String,String,String,String)] {
         var cards = [(String,String,String,String)]()
-        let card = universalSuggestion[role]!
+        var card = [(String,String,String,String)]()
+        if universalSuggestion[role] == nil {
+             card = universalSuggestion["Children"]!
+        }else{
+             card = universalSuggestion[role]!
+        }
+
         let shuffle = card.shuffled()
         var count = 0
         if aS != "Secure" {
