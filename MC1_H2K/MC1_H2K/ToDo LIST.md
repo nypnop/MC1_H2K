@@ -1,20 +1,17 @@
 #  <#Title#>
 
 ## Compatibility Functionality :
-placeholder mapping ke hasil test terakhir
 submit -> page result
 improve it now -> suggestion
-Comments content
+
+placeholder mapping ke hasil test terakhir
 reverse di compat
 
 ## Applied suggestion :
 
 struct content
-    struct primary applied done
     struct universal applied 
 randomize content in universal and primary content
 
 ## Summary page :
-
-## Test page :
-kalau sudah beres harus dismiss page
+pindah page via more button

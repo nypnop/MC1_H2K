@@ -54,7 +54,7 @@ struct CompatibilityPageView: View {
                     
                 }
             }.navigationBarTitle("Compatibility")
-                .edgesIgnoringSafeArea(.bottom)
+//                .edgesIgnoringSafeArea(.bottom)
         }
     }
 }
