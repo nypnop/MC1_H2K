@@ -16,7 +16,6 @@ struct CompatibilityInput: View {
     @State private var selectedStyleOption = "Secure"
     @State private var selectedOtherStyleOption = "Secure"
     @State private var selectedOption = 0
-        let options = ["Option 1", "Option 2", "Option 3"]
     var body: some View {
         VStack{
             HStack{

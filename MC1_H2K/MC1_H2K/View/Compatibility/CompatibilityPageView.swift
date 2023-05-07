@@ -51,10 +51,9 @@ struct CompatibilityPageView: View {
                     }else{
                         CompatibilityHistory()
                     }
-                    
                 }
             }.navigationBarTitle("Compatibility")
-                .edgesIgnoringSafeArea(.bottom)
+//                .edgesIgnoringSafeArea(.bottom)
         }
     }
 }

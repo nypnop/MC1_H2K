@@ -69,13 +69,7 @@ struct HomeView: View{
 struct SecondHomeView: View{
     @FetchRequest(entity: Compatibility.entity(), sortDescriptors: [NSSortDescriptor(key: "date", ascending: false)])
     private var comp: FetchedResults<Compatibility>
-    @State var cards = [
-        ("Title 1", "Action 1", "Description 1", "people://"),
-        ("Title 2", "Action 2", "Description 2","https://wa.me/"),
-        ("Title 3", "Action 3", "Description 3","https://grab.com/"),
-        ("Title 4", "Action 4", "Description 4","https://gojek.com/"),
-        ("Title 5", "Action 5", "Description 5","https://wa.me/")
-    ]
+    @StateObject var viewModel = AppliedViewModel()
     @Binding var selection: Int
     
     var body: some View{
@@ -192,11 +186,10 @@ struct SecondHomeView: View{
                     
                     
                         VStack {
-                            ForEach(cards.indices, id: \.self) { index in
-                                SuggestionCard(CardTitle: $cards[index].0, CardAction: $cards[index].1, CardDescription: $cards[index].2, CardLink: $cards[index].3)
+                            ForEach(viewModel.randomSuggestion(aS: !comp.isEmpty ? comp[0].yourAS ?? "" : "" ,role: !comp.isEmpty ? comp[0].role ?? "" : "").indices, id: \.self) { index in
+                                SuggestionCard(CardTitle: viewModel.randomSuggestion(aS: !comp.isEmpty ? comp[0].yourAS ?? "" : "" ,role: "Children")[index].0, CardAction: viewModel.randomSuggestion(aS: !comp.isEmpty ? comp[0].yourAS ?? "" : "" ,role: "Children")[index].1, CardDescription: viewModel.randomSuggestion(aS: !comp.isEmpty ? comp[0].yourAS ?? "" : "" ,role: "Children")[index].2, CardLink: viewModel.randomSuggestion(aS: !comp.isEmpty ? comp[0].yourAS ?? "" : "" ,role: "Children")[index].3)
                                 
                             }
-                        
                     }
                 }
                 .scrollIndicators(.hidden)
