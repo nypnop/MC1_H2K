@@ -10,7 +10,7 @@ struct AppliedSuggestionPageView: View {
     @FetchRequest(entity: Compatibility.entity(), sortDescriptors: [NSSortDescriptor(key: "date", ascending: false)])
     private var comp: FetchedResults<Compatibility>
     @StateObject var viewModel = AppliedViewModel()
-//    public var card: [(String,String,String,String)]
+    
     var body: some View {
         NavigationView{
             ScrollView{

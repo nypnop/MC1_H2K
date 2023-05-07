@@ -8,13 +8,14 @@ import SwiftUI
 
 struct CompatibilityPageView: View {
     @State private var compatibilitySegment = 0
-    public init() {
-        UISegmentedControl.appearance().selectedSegmentTintColor = UIColor.white
-        let attributes: [NSAttributedString.Key:Any] = [
-            .foregroundColor: UIColor(named: "teal600")!
-        ]
-        UISegmentedControl.appearance().setTitleTextAttributes(attributes, for: .normal)
-    }
+    @Binding var selection: Int
+//    public init() {
+//        UISegmentedControl.appearance().selectedSegmentTintColor = UIColor.white
+//        let attributes: [NSAttributedString.Key:Any] = [
+//            .foregroundColor: UIColor(named: "teal600")!
+//        ]
+//        UISegmentedControl.appearance().setTitleTextAttributes(attributes, for: .normal)
+//    }
     var body: some View {
         NavigationView {
             ScrollView{
@@ -44,22 +45,21 @@ struct CompatibilityPageView: View {
                     }
                     
                     if compatibilitySegment == 0{
-                        CompatibilityInput()
+                        CompatibilityInput(selection: $compatibilitySegment)
                     }
                     else if compatibilitySegment == 1{
-                        CompatibilityResult()
+                        CompatibilityResult(selection: $selection)
                     }else{
                         CompatibilityHistory()
                     }
                 }
             }.navigationBarTitle("Compatibility")
-//                .edgesIgnoringSafeArea(.bottom)
         }
     }
 }
 
 struct CompatibilityPageView_Previews: PreviewProvider {
     static var previews: some View {
-        CompatibilityPageView()
+        CompatibilityPageView(selection: .constant(4))
     }
 }
