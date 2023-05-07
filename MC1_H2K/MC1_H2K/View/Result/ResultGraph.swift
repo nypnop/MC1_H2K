@@ -38,7 +38,6 @@ struct ResultGraph: View {
             .foregroundStyle(Color("teal500"))
             .annotation(position: .trailing) {
                                 Text(String(format: "%.0f%%", item.count))
-                                    .foregroundColor(Color.primary)
                                     .font(.caption2)
                                     .padding(.leading, 2)
                             }

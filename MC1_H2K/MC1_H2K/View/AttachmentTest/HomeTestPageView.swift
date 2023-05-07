@@ -18,7 +18,6 @@ struct HomeTestPageView: View {
                 Text("Attachment Style Test")
                     .font(.title)
                     .bold()
-                    .foregroundColor(.black)
                     .padding(.bottom,1)
                 Text("Understand your Attachment Style")
                     .font(.body)
@@ -42,7 +41,6 @@ struct HomeTestPageView: View {
                             .padding(.trailing,-2)
                         Text("30 question")
                             .font(.caption)
-                            .foregroundColor(Color(UIColor(named: "teal900")!))
                     }
                     .padding()
                     .padding(.trailing,20)
@@ -51,7 +49,6 @@ struct HomeTestPageView: View {
                             .padding(.trailing,-2)
                         Text("~15 minutes")
                             .font(.caption)
-                            .foregroundColor(Color(UIColor(named: "teal900")!))
                     }
                     .padding()
                     .padding(.leading,20)
@@ -84,7 +81,6 @@ struct HomeTestPageView: View {
                                 Spacer()
                             }
                         }
-                        .foregroundColor(.black)
                         .multilineTextAlignment(.leading)
                         .font(.caption)
                     }
@@ -120,7 +116,6 @@ struct HomeTestPageView: View {
                                 Spacer()
                             }
                         }
-                        .foregroundColor(.black)
                         .multilineTextAlignment(.leading)
                         .font(.caption)
                     }

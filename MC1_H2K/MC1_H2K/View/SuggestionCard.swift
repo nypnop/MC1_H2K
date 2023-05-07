@@ -66,7 +66,6 @@ struct SuggestionCard: View {
             HStack {
                 Text(CardDescription)
                     .padding(.horizontal)
-                    .foregroundColor(.black)
                     .multilineTextAlignment(.leading)
                     .font(.caption)
                 Spacer()
@@ -90,5 +89,6 @@ struct SuggestionCard: View {
         }
     }
 }
+
 
 

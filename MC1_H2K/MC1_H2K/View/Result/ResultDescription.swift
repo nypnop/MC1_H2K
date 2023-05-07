@@ -18,7 +18,6 @@ struct ResultDescription: View {
     var body: some View {
         VStack{
           Text(type == "Secure" ? descList[0] : type == "Anxious" ? descList[1] : type == "Fearful-Avoidant" ? descList[2] : type == "Dismissive Avoidant" ? descList[3] : "")
-                .foregroundColor(.black)
                 .multilineTextAlignment(.leading)
                 .font(.caption)
         }

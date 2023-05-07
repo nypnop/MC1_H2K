@@ -240,6 +240,13 @@
 			name = Home;
 			sourceTree = "<group>";
 		};
+		8DE7F9E82A035F720003BC12 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */

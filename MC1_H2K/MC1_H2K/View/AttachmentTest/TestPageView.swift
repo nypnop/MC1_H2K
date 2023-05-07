@@ -161,7 +161,7 @@ struct FooterView: View {
             .padding(.top,-50)
             .padding([.trailing,.leading],40)
             .buttonStyle( BigButtonTemplate(width: 342, height:25, isAll: progressValue == 1.0 ? true : false))
-            .background(.white)
+            .background(Color("ColorCs"))
             
         }
         

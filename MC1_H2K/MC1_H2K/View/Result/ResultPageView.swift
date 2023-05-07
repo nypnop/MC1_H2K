@@ -32,16 +32,6 @@ struct ResultPageView: View {
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 140)
-                                .overlay(alignment: .bottomTrailing){
-                                    Button(action: {
-                                        
-                                    }){
-                                        Label("Export to PDF", systemImage: "square.and.arrow.up.fill")
-                                    }
-                                    .buttonStyle( PdfButtonTemplate(width: 111, height:24) )
-                                    .padding(.bottom,15)
-                                    .offset(x: 80)
-                                }
                                 .onAppear() {
                                     print(resultData)
                                     print("resultData[0].type")
@@ -76,7 +66,7 @@ struct ResultPageView: View {
                             ResultHistory()
                         }
                     }
-                }.navigationTitle("Attachment Style Result")
+                }.navigationTitle("Test Result")
             } else {
                 HomeView(selection: $selection)
             }

@@ -21,7 +21,6 @@ struct CompatibilityResult: View {
     @FetchRequest(entity: Compatibility.entity(), sortDescriptors: [NSSortDescriptor(key: "date", ascending: false)])
     private var comp: FetchedResults<Compatibility>
     var body: some View {
-        ScrollView {
             VStack(alignment:.leading){
                 HStack{
                     Text("Result")
@@ -84,7 +83,7 @@ struct CompatibilityResult: View {
                     })
                 }.padding(.top,8)
                 
-            }.frame(width: .infinity, height: .infinity)
+            }
                 .padding()
                 .background(RoundedRectangle(cornerRadius: 10).fill(Color("teal25")))
                 .overlay(
@@ -92,7 +91,6 @@ struct CompatibilityResult: View {
                         .stroke(Color("teal500"), lineWidth:1))
                 .padding(.top)
             .padding(.horizontal,16)
-        }
     }
 }
 
